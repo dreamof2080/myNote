@@ -16,10 +16,11 @@ module.exports = {
         nav: [
             {text: 'Home', link: '/'},
             {
-                text: '系统',
+                text: 'OA系统',
                 items: [
-                    {text: 'OA配置', link: '/system/oaSets/'},
-                    {text: 'OA表结构', link: '/system/oaTables/'},
+                    {text: '系统配置', link: '/oaSystem/oaSets/'},
+                    {text: '表结构', link: '/oaSystem/oaTables/'},
+                    {text: '权限分表', link: '/oaSystem/permissionSplit/'},
                 ]
             },
             {
