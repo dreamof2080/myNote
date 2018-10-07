@@ -10,6 +10,9 @@ module.exports = {
         ['link', {rel: 'manifest', href: '/manifest.json'}],
     ],
     themeConfig: {
+        //自动生成侧栏
+        sidebar: 'auto',
+        sidebarDepth: 1,
         //gitc仓库地质
         repo: 'https://github.com/dreamof2080/myNote.git',
         //导航栏
@@ -28,6 +31,7 @@ module.exports = {
                 items: [
                     {text: 'oracle', link: '/db/oracle/'},
                     {text: 'mysql', link: '/db/mysql/'},
+                    {text: 'redis', link: '/db/redis/'},
                 ]
             },
             {
