@@ -1,5 +1,5 @@
 ---
-sidebar: auto
+sidebarDepth: 0
 title: OA表结构
 ---
 
