@@ -6,7 +6,7 @@ module.exports = {
     port: 8081,
     //额外的需要被注入到当前页面的HTML head中的标签，其中路径的'/'就是public资源目录
     head: [
-        ['link', {rel: 'icon', href: '/img/logo.ico'}],
+        ['link', {rel: 'icon', href: '/img/knowledge.png'}],
         ['link', {rel: 'manifest', href: '/manifest.json'}],
     ],
     themeConfig: {

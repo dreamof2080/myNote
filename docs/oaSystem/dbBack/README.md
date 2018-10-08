@@ -49,6 +49,7 @@ DROP TABLESPACE SYSTEMLOG INCLUDING CONTENTS AND DATAFILES;
 <code>select group_number,name,total_mb,free_mb from v$asm_diskgroup;</code>
 
 ## 创建表空间
+应根据表空间的实际大小规划，这里只是举例说明
 ```markdown
 --bestlink表空间(64G)：
 create tablespace BESTLINK datafile 
@@ -163,10 +164,10 @@ create tablespace SYSTEMLOG datafile
 ## 创建用户
 <code>create user userName identified by password default tablespace bestlink;</code>
 
-## 赋dba权限
+## 给用户赋dba权限
 <code>grant dba to userName;</code>
 
-## 文件夹访问权限
+## 给用户赋文件夹访问权限
 <code>grant read ,write on directory dump_mqh_file to userName;</code>
 
 ## 数据导入
