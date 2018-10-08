@@ -4,8 +4,7 @@ title: redis
 ---
 
 ## docker下的redis
-### ubuntu下安装docker
-运行：<code>sudo apt install docker</code>
+docker的安装请参照 [docker的安装](/backStage/docker/)
 ### 获取redis
 运行：<code>sudo docker pull redis</code>   
 查看已获取的redis镜像：<code>sudo docker images</code>

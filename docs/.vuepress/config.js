@@ -39,7 +39,7 @@ module.exports = {
                 text: '后台',
                 items: [
                     {text: 'java', link: '/backStage/java/'},
-                    {text: '框架', link: '/backStage/frameWork/'},
+                    {text: 'docker', link: '/backStage/docker/'},
                 ]
             },
             {
