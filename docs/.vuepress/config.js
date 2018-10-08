@@ -1,12 +1,12 @@
 module.exports = {
     title: '知识文档',
-    description: '总结知识，分享知识',
+    description: '总结知识，分享知识，创造知识',
     base: '/',
     host: '0.0.0.0',
     port: 8081,
     //额外的需要被注入到当前页面的HTML head中的标签，其中路径的'/'就是public资源目录
     head: [
-        ['link', {rel: 'icon', href: '/img/knowledge.png'}],
+        ['link', {rel: 'icon', href: '/img/icon.png'}],
         ['link', {rel: 'manifest', href: '/manifest.json'}],
     ],
     themeConfig: {

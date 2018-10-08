@@ -124,6 +124,9 @@ insert into permissiondetails4 select pd.* from permissiondetail_test pd;
 commit;
 truncate table permissiondetail_test;
 ```
+## 收尾工作
+上述一切完成后，请重启OA服务，以使权限分表功能生效
+
 ## 存储过程：P_transfer_permissiondetail
 ```markdown
 create or replace PROCEDURE P_transfer_permissiondetail(permcode in varchar2,pdetailTotal in number,detailTable in varchar2,ufTable in varchar2)
