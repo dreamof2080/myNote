@@ -24,6 +24,7 @@ module.exports = {
                     {text: '系统配置', link: '/oaSystem/oaSets/'},
                     {text: '表结构', link: '/oaSystem/oaTables/'},
                     {text: '权限分表', link: '/oaSystem/permissionSplit/'},
+                    {text: '数据库回导操作', link: '/oaSystem/dbBack/'},
                 ]
             },
             {
