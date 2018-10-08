@@ -1,5 +1,4 @@
 ---
-sidebar: auto
 title: OA系统配置
 ---
 
@@ -50,6 +49,9 @@ OA使用的集群环境，多个tomcat共享同一个session,session信息保存
     password="abc123"                //密码
     maxInactiveInterval="1800" />    //超时时间，单位秒
 ```
+
+## OA集群地址配置
+在模块管理-->基础设置-->select字段维护中查找:web集群站点,此选择项记录了WEB集群地址
 
 ## jedis配置
 redis除了保存session信息，也会保存程序中的临时变量或其他数据。程序中采用了jedis操作redis，需要进行相关配置。  
