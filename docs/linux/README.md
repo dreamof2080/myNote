@@ -5,6 +5,4 @@ sidebar: auto
 
 # linux
 
-#### 201805
-- [记Windows开发迁移至Mac环境](./记Windows开发迁移至Mac环境.md)
-- [VuePress搭建个人blog](./VuePress搭建个人blog.md)
+#### 总结中，敬请期待
