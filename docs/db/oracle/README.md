@@ -123,7 +123,7 @@ insert into requestlog_p select * from requestlog;
 select count(*) from requestlog;
 select count(*) from requestlog_p;
 8、表重命名
-rename requestlog to requestlog_bak;
+rename requestlog to requestlog_bak2;
 rename requestlog_p to requestlog;
 
 ```
@@ -145,7 +145,9 @@ DROP TABLESPACE requestlog_2019_q4 INCLUDING CONTENTS AND DATAFILES;
 ```markdown
 select、update requestlog表时加入条件：
 createdate>=to_date(:startdate,'yyyy-mm-dd') and createdate<=to_date(:enddate,'yyyy-mm-dd')
-:startdate、:enddate可使用requestbaseService.getReqDateRange(String reqeustid)获取
-
+:startdate、:enddate获取：
+Map<String,String> requestDateRange = requestbaseService.getReqDateRange(requestid);
+String start = requestDateRange.get("start");
+String end = requestDateRange.get("end");
 ```
 
