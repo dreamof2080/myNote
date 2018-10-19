@@ -9,6 +9,14 @@ title: oracle
 ```markdown
 select username,default_tablespace from user_users;
 ```
+### 查询表空间的路径
+```markdown
+select * from dba_data_files
+```
+### 查询存储的大小
+```markdown
+select group_number gno,name,state,type,total_mb,free_mb,required_mirror_free_mb rmfmb,usable_file_mb ufmb from v$asm_diskgroup;
+```
 ### 查询表空间的使用情况
 ```markdown
 SELECT D.TABLESPACE_NAME "表空间名字", D.STATUS "状态",
@@ -49,5 +57,95 @@ DROP TABLESPACE tablespace_name INCLUDING CONTENTS AND DATAFILES;
 alter table humres move  tablespace spaceName;
 2、重建表的索引
 alter index INDEX_HUMRES_OBJNO rebuild tablespace spaceName;
+```
+## 分区表的应用
+### 对reqeustlog进行range分区
+```markdown
+1、创建createdate字段
+alter table requestlog add createdate date default sysdate;
+2、修改历史数据的值
+update requestlog set createdate=to_date(operatedate,'yyyy-mm-dd');
+3、创建分区使用的表空间
+create tablespace requestlog_2017 datafile '+DATA/requestlog_2017' size 2000M reuse LOGGING ONLINE PERMANENT EXTENT MANAGEMENT LOCAL UNIFORM SIZE 1M;
+create tablespace requestlog_2018_q1 datafile '+DATA/requestlog_2018_q1' size 1024M reuse LOGGING ONLINE PERMANENT EXTENT MANAGEMENT LOCAL UNIFORM SIZE 1M;
+create tablespace requestlog_2018_q2 datafile '+DATA/requestlog_2018_q2' size 1024M reuse LOGGING ONLINE PERMANENT EXTENT MANAGEMENT LOCAL UNIFORM SIZE 1M;
+create tablespace requestlog_2018_q3 datafile '+DATA/requestlog_2018_q3' size 1024M reuse LOGGING ONLINE PERMANENT EXTENT MANAGEMENT LOCAL UNIFORM SIZE 1M;
+create tablespace requestlog_2018_q4 datafile '+DATA/requestlog_2018_q4' size 1024M reuse LOGGING ONLINE PERMANENT EXTENT MANAGEMENT LOCAL UNIFORM SIZE 1M;
+create tablespace requestlog_2019_q1 datafile '+DATA/requestlog_2019_q1' size 1024M reuse LOGGING ONLINE PERMANENT EXTENT MANAGEMENT LOCAL UNIFORM SIZE 1M;
+create tablespace requestlog_2019_q2 datafile '+DATA/requestlog_2019_q2' size 1024M reuse LOGGING ONLINE PERMANENT EXTENT MANAGEMENT LOCAL UNIFORM SIZE 1M;
+create tablespace requestlog_2019_q3 datafile '+DATA/requestlog_2019_q3' size 1024M reuse LOGGING ONLINE PERMANENT EXTENT MANAGEMENT LOCAL UNIFORM SIZE 1M;
+create tablespace requestlog_2019_q4 datafile '+DATA/requestlog_2019_q4' size 1024M reuse LOGGING ONLINE PERMANENT EXTENT MANAGEMENT LOCAL UNIFORM SIZE 1M;
+4、创建分区表requestlog_p
+create table requestlog_p 
+(	ID VARCHAR2(32 BYTE) NOT NULL ENABLE, 
+	REQUESTID VARCHAR2(32 BYTE), 
+	STEPID VARCHAR2(32 BYTE), 
+	LOGTYPE VARCHAR2(32 BYTE), 
+	OPERATOR VARCHAR2(32 BYTE), 
+	OPERATEDATE VARCHAR2(10 BYTE), 
+	OPERATORTIME VARCHAR2(8 BYTE), 
+	REMARK CLOB, 
+	ISDELETE NUMBER(38,0) DEFAULT 0, 
+	BYAGENT VARCHAR2(50 BYTE), 
+	RULEID VARCHAR2(32 BYTE), 
+	LASTSTEPID VARCHAR2(32 BYTE), 
+	ATTACHIDS VARCHAR2(500 BYTE), 
+	ISFEEDBACKREAD VARCHAR2(2 BYTE), 
+	ISREJECTDELETE NUMBER(*,0), 
+	NEXTOPERNAME CLOB, 
+	SELEMAIL NUMBER(*,0), 
+	SELSMS NUMBER(*,0), 
+	SELRTX NUMBER(*,0), 
+	SELPOPUP NUMBER(*,0), 
+	REFDOCBASEID VARCHAR2(4000 BYTE), 
+	REFWORKFLOWID VARCHAR2(4000 BYTE), 
+	CREATEDATE DATE DEFAULT sysdate, 
+    PRIMARY KEY (ID)
+)
+partition by range (createdate)
+(
+    PARTITION requestlog_2017 values less than(to_date('2018-01-01','yyyy-mm-dd')) tablespace requestlog_2017,
+    PARTITION requestlog_2018_q1 values less than(to_date('2018-04-01','yyyy-mm-dd')) tablespace requestlog_2018_q1,
+    PARTITION requestlog_2018_q2 values less than(to_date('2018-07-01','yyyy-mm-dd')) tablespace requestlog_2018_q2,
+    PARTITION requestlog_2018_q3 values less than(to_date('2018-10-01','yyyy-mm-dd')) tablespace requestlog_2018_q3,
+    PARTITION requestlog_2018_q4 values less than(to_date('2019-01-01','yyyy-mm-dd')) tablespace requestlog_2018_q4,
+    PARTITION requestlog_2019_q1 values less than(to_date('2019-04-01','yyyy-mm-dd')) tablespace requestlog_2019_q1,
+    PARTITION requestlog_2019_q2 values less than(to_date('2019-07-01','yyyy-mm-dd')) tablespace requestlog_2019_q2,
+    PARTITION requestlog_2019_q3 values less than(to_date('2019-10-01','yyyy-mm-dd')) tablespace requestlog_2019_q3,
+    PARTITION requestlog_2019_q4 values less than(to_date('2020-01-01','yyyy-mm-dd')) tablespace requestlog_2019_q4,
+    PARTITION requestlog_maxvalue VALUES LESS THAN (MAXVALUE)
+);
+5、创建索引
+CREATE INDEX idx_requestlog_all ON requestlog_p (requestid,operator,logtype,stepid);
+6、插入数据
+insert into requestlog_p select * from requestlog;
+7、验证数据是否正常
+select count(*) from requestlog;
+select count(*) from requestlog_p;
+8、表重命名
+rename requestlog to requestlog_bak;
+rename requestlog_p to requestlog;
+
+```
+::: warning 注：
+如果插入数据时提示表空间不足，则需要先drop表和表空间并修改创建表空间大小的语句重建表和表空间
+因为数据虽然没有插入但表空间已被使用
+drop table requestlog_p;
+DROP TABLESPACE requestlog_2017 INCLUDING CONTENTS AND DATAFILES;
+DROP TABLESPACE requestlog_2018_q1 INCLUDING CONTENTS AND DATAFILES;
+DROP TABLESPACE requestlog_2018_q2 INCLUDING CONTENTS AND DATAFILES;
+DROP TABLESPACE requestlog_2018_q3 INCLUDING CONTENTS AND DATAFILES;
+DROP TABLESPACE requestlog_2018_q4 INCLUDING CONTENTS AND DATAFILES;
+DROP TABLESPACE requestlog_2019_q1 INCLUDING CONTENTS AND DATAFILES;
+DROP TABLESPACE requestlog_2019_q2 INCLUDING CONTENTS AND DATAFILES;
+DROP TABLESPACE requestlog_2019_q3 INCLUDING CONTENTS AND DATAFILES;
+DROP TABLESPACE requestlog_2019_q4 INCLUDING CONTENTS AND DATAFILES;
+:::
+### requestlog表分区后的应用
+```markdown
+select、update requestlog表时加入条件：
+createdate>=to_date(:startdate,'yyyy-mm-dd') and createdate<=to_date(:enddate,'yyyy-mm-dd')
+:startdate、:enddate可使用requestbaseService.getReqDateRange(String reqeustid)获取
+
 ```
 
