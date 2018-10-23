@@ -2,6 +2,15 @@
 title: OA代码说明
 ---
 
+## 介绍
+### DAO
+Dao分为Dao、DaoImpl，Dao为接口，DaoImpl为实现类，   
+Dao继承BaseEntityDao，DaoImpl继承BaseHibernateDao，BaseEntityDao中定义了数据库操作的基础方法，具体在BaseHibernateDao中实现，   
+这里利用了java中的多态特性，具体的DaoImpl中不需要实现BaseEntityDao中的方法
+### 权限
+如果涉及到权限的查询则使用find()方法，非权限的查询则可使用其查询方法
+### service业务代码
+service中的业务代码create、save、modify、update、delete等操作其他entity时使用对应的service操作
 ## 用户
 判断当前用户是否属于某个角色
 ```java
