@@ -125,7 +125,10 @@ select count(*) from requestlog_p;
 8、表重命名
 rename requestlog to requestlog_bak2;
 rename requestlog_p to requestlog;
-
+9、分析表数据
+exec dbms_stats.gather_table_stats('test1', 'requestlog', cascade => true);
+10、重建索引：
+alter index IDX_requestlog_ALL rebuild;
 ```
 ::: warning 注：
 如果插入数据时提示表空间不足，则需要先drop表和表空间并修改创建表空间大小的语句重建表和表空间
@@ -150,4 +153,33 @@ Map<String,String> requestDateRange = requestbaseService.getReqDateRange(request
 String start = requestDateRange.get("start");
 String end = requestDateRange.get("end");
 ```
-
+## 表存储块优化
+```markdown
+--查询表的大小
+select bytes/1024/1024/1024 from dba_segments where segment_name='PERMISSIONRULE';
+--清理碎片
+alter table PERMISSIONRULE move;
+--查询索引
+select index_name from dba_indexes where table_name='PERMISSIONRULE';
+--重建索引
+    --移动到其他表空间
+alter index idx_name rebuild tablespace tbs1;
+    --不移动表空间
+alter index index_name rebuild online
+```
+## 分析表数据
+```markdown
+--删除数据后对表重新分析块信息：
+1、分析表：
+exec dbms_stats.gather_table_stats('test1', 'REQUESTLOG', cascade => true);
+2、重建索引：
+alter index PERMISSIONDETAILS2_OBJID  rebuild;
+```
+## 通过进程PID查询SQL 
+```markdown
+select sql_text from v$sqltext a where a.hash_value = 
+( SELECT sql_hash_value from v$session b, 
+v$process c where b.paddr = c.addr 
+AND c.spid = '67214') 
+ORDER BY piece asc;
+```

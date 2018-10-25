@@ -171,7 +171,7 @@ create tablespace SYSTEMLOG datafile
 <code>grant read ,write on directory dump_mqh_file to userName;</code>
 
 ## 数据导入
-<code>impdp test1/Bestadmin123 directory=DUMP_MQH_FILE dumpfile=test1_20181003.dmp full=y</code>
+<code>impdp test1/Bestadmin123 directory=DUMP_MQH_FILE dumpfile=test1_20181003.dmp logfile=111.log transform=segment_attributes:n full=y</code>
 
 ## 操作记录
 * 2018-10-03

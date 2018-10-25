@@ -618,7 +618,7 @@ title: OA表结构
 
 
 ## 树形配置
-### treeViwerInfo 树形配置
+### treeViewerInfo 树形配置
 | fieldName      | fieldType     | isnull  | default | remark       |
 | ------------- |:-------------| :----- | :-----| :-----|
 | id  |varchar2(32)|  no|  null  | 主键 |
