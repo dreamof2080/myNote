@@ -9,9 +9,15 @@ title: 断电恢复
 ## 检查数据库是否正常
 使用数据库连接工具是否正常连接数据库，无法正常连接则执行以下命令：
 ```bash
+切换到oracle用户下   
 [localhost ~]#su - oracle
+打开监听服务
+[localhost ~]#lsnrctl start
+查看监听运行情况
+[localhost ~]#lsnrctl status
+以管理员身份登陆oracle
 [localhost ~]#sqlplus / as sysdba
-[localhost ~]#shutdown immediate
+启动实例
 [localhost ~]#startup
 ```
 
@@ -34,7 +40,12 @@ localhost:6379>auth bestlink
 ```
 以上命令能正常显示activemq进程，表示activemq已启动，进入浏览器输入地址访问：   
 <code>http://192.168.0.58:8161</code>  
-能正常显示首页地址表示activemq正常
+能正常显示首页地址表示activemq正常，不正常则启动：   
+```bash
+[localhost ~]#cd /usr/local/activemq/apache-activemq-5.15.3/bin/linux-x86-64/
+[localhost ~]#./activemq start
+
+```
 
 ## 进入OA服务器检查docker是否正常
 进入192.168.0.55和192.168.0.56服务器，执行命令
