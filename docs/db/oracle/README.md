@@ -183,3 +183,17 @@ v$process c where b.paddr = c.addr
 AND c.spid = '67214') 
 ORDER BY piece asc;
 ```
+## 根据表的行数大小排序
+```markdown
+select table_name,blocks,num_rows
+from dba_tables
+where owner not like '%SYS%' and table_name not like '%$%'
+order by num_rows desc;
+```
+## 根据表的大小排序
+```markdown
+SELECT t.segment_name,TO_CHAR(SUM(BYTES)/(1024*1024),'999G999D999') MB
+FROM user_segments t
+WHERE SEGMENT_TYPE LIKE 'TABLE%'
+GROUP BY t.segment_name order by 2 desc;
+```
