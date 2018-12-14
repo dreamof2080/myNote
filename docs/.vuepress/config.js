@@ -26,6 +26,7 @@ module.exports = {
                     {text: '权限分表', link: '/oaSystem/permissionSplit/'},
                     {text: '数据库回导操作', link: '/oaSystem/dbBack/'},
                     {text: '断电恢复', link: '/oaSystem/powerOffRecovery/'},
+                    {text: '更新说明', link: '/oaSystem/update/'},
                 ]
             },
             {
