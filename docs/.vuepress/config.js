@@ -47,6 +47,7 @@ module.exports = {
             {
                 text: '前端',
                 items: [
+                    {text: 'JavaScript', link: '/front/js/'},
                     {text: 'vue.js', link: '/front/vuejs/'},
                     {text: '设计', link: '/front/design/'},
                 ]
