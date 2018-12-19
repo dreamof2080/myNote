@@ -20,3 +20,15 @@ title: Linux知识
 | 拷贝文件到其他服务器上 | scp /opt/tmp/1.txt root@192.168.56.121:/opt/tmp|
 | 修改open files的最大数 | 1、查看open files的最大数：ulimit -a<br>修改file-max:<br># vim /etc/sysctl.conf，加入以下内容，重启生效:<br>fs.file-max=6553560<br>修改ulimitd的open file,系统默认的ulimit对文件打开数量的限制是1024<br>#vim /etc/security/limits.conf加入以下内容：<br>soft nofile 65535<br>hard nofile 65535<br>重启生效|
 
+## rdesktop远程桌面
+rdesktop是linux远程桌面连接windows的一款工具。   
+```bash
+rdesktop 192.168.115.4 -g 1366x768
+#注：1366x768是分辨率，其中x为字母x而不是乘号
+```
+
+## ubuntu输入法数字无法选词
+ubuntu系统自带的输入法ibus出现bug，切换为中文输入法后键盘的数字无法选词。   
+```bash
+rm -rf ~/.cache/ibus/libpinyin
+```
