@@ -59,3 +59,7 @@ IE浏览器：
  代码编辑页面中的style=display:none系统会默认替换成show=false,不影响JS操作DOM，   
  原来的写法不变：document.getElementById("id").style.display = "none"|"";   
  ![avatar](/img/oaSystem/update/20181221/html.png)  
+ 
+## 2018年12月22日:布局设计器更新说明
+### 增加字体大小设置和颜色设置
+ ![avatar](/img/oaSystem/update/20181222/fontsize_color.png)  
