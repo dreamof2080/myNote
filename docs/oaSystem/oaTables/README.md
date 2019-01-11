@@ -413,8 +413,8 @@ title: OA表结构
 |objTable|  varchar2(32)|  yes|  null|  权限对象类型，如docbase，uf表|
 |objField|  clob  |yes| null|  权限对象对应字段id
 |orgId|  varchar2(32)|  yes| null|  操作权限的组织部门id，对应orgunit表的id字段操作权限的人员id，对应humres表的id字段
-|userId|  varchar2(32)|  yes|  null  |???
-|isAllUser|  number|  yes|  null|  是否所有员工，默认所有员工
+|userId|  varchar2(32)|  yes|  null  |员工ID
+|isAllUser|  number|  yes|  null|  是否所有员工，当设置特定安全级别的操作者时为1
 |minSecLevel|  number|  yes|null|  最小安全级别
 |maxSecLevel|  number|  yes|null|  最大安全级别
 |<span id="permissionRule">optType</span>  |number|  yes|  null|  权限类型，2：创建，3：查看，6：监控,9：到期提醒，13：督办,15：编辑，105：删除，165：共享
