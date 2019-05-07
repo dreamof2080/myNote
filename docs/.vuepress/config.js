@@ -61,6 +61,7 @@ module.exports = {
           {text: 'git', link: '/vcs/git/'},
         ]
       },
+      {text: '软考', link: '/alorithm/'},
     ],
     search: true,
     markdown: {
