@@ -10,6 +10,7 @@ title: 软考
 ### 相关术语
 度：   
 &#160; &#160; &#160; &#160;一个结点含有的子树的个树称为该结点的度   
+  ![avatar](/img/alorithm/tree/tree.png)    
 叶结点：   
 &#160; &#160; &#160; &#160;度为0的结点      
 分支结点：   
@@ -17,7 +18,8 @@ title: 软考
 树的度：   
 &#160; &#160; &#160; &#160;一棵树中，最大的结点的度称为树的度      
 结点的层次：   
-&#160; &#160; &#160; &#160;从根开始定义起，根为第1层，根的子结点为第2层，以此类推      
+&#160; &#160; &#160; &#160;从根开始定义起，根为第1层，根的子结点为第2层，以此类推
+  ![avatar](/img/alorithm/tree/tree2.png)           
 树的高度或深度：   
 &#160; &#160; &#160; &#160;树中结点的最大层次      
 兄弟结点：   
@@ -44,6 +46,7 @@ title: 软考
 &#160; &#160; &#160; &#160;树中任意结点的子结点之间有顺序关系，这种树称为有序树   
 二叉树：   
 &#160; &#160; &#160; &#160;每个结点最多含有两个子树的树   
+  ![avatar](/img/alorithm/tree/binaryTree.png)   
 满二叉树（Perfect Binary Tree(PBT)）：   
 &#160; &#160; &#160; &#160;除最后一层无任何子结点外，每一层上的所有结点都有两个子结点的二叉树(A Perfect Binary Tree is a tree with all leaf nodes at the same depth.All internal nodes have degree 2)   
   ![avatar](/img/alorithm/tree/PBT.png)    
@@ -72,6 +75,44 @@ and all nodes are as far left as possible）
 * 性质3： 包含n个结点的二叉树的高度至少为log<sub>2</sub>(n+1)
 * 性质4： 在任意一颗二叉树中，若终端结点的个数为n<sub>0</sub>，度为2的结点数为n<sub>2</sub>，则n<sub>0</sub>=n<sub>2</sub>+1
 *****
+###  二叉树的遍历
+二叉树遍历分为三种：前序、中序、后序、层序遍历，其中中序遍历最为重要。为啥叫这个名字？是根据根结点的顺序命令的
+  ![avatar](/img/alorithm/tree/loop.png)  
+  比如上图正常的一个满结点，A：根结点、B：左结点、C：右结点
+  * 前序顺序是ABC（根结点排最先，然后同级先左后右 -> 根左右）；
+  * 中序顺序是BAC（先左后根最后右 -> 左根右）；
+  * 后续顺序是BCA（先左后右最后根 -> 左右根）；
+  * 层序遍历是ABC，按照树的层次自上而下的遍历二叉树
+     
+ ![avatar](/img/alorithm/tree/loop2.png)  
+  比如上图二叉树遍历结果：
+ * 前序遍历：ABCDEFGHK；
+ * 中序遍历：BDCAEHGKF；
+ * 后序遍历：DCBHKGFEA；
+ *****
+ ###  二叉树的存储结构
+ 包括 顺序存储、链式存储
+ #### 顺序存储
+ 二叉树的顺序存储结构就是使用一维数组存储二叉树中的结点，并且结点的存储位置，就是数组的下标索引   
+  ![avatar](/img/alorithm/tree/binaryTree2.png)    
+  上图所示的一棵完全二叉树采用顺序存储方式：      
+   ![avatar](/img/alorithm/tree/binaryTree3.png)    
+ 由图可以看出，当二叉树为完全二叉树时，结点数刚好填满数组。   
+ 那么当二叉树不为完全二叉树时，采用顺序存储形式如何呢？   
+![avatar](/img/alorithm/tree/binaryTree4.png)    
+ 其中浅色结点表示结点不存在，其顺序存储结构：   
+![avatar](/img/alorithm/tree/binaryTree5.png)    
+  其中,^表示数组中此位置没有存储结点。此时可以发现，顺序存储结构中已经出现了空间浪费的情况。   
+  那么对于右斜树极端情况对应的顺序存储结构如图：    
+![avatar](/img/alorithm/tree/binaryTree6.png)     
+   由图可以看出，对于这种右斜树极端情况，采用顺序存储的方式是十分浪费空间的，因此，顺序存储一般适用于完全二叉树。   
+#### 二叉链表
+既然顺序存储不能满足二叉树的存储需求，那么考虑采用链式存储。   
+由二叉树定义可知，二叉树的每个结点最多有两个孩子。因此，可以将结点数据结构定义为一个数据和两个指针域。如图所示：   
+![avatar](/img/alorithm/tree/binaryTree7.png)        
+上面的完全二叉树可采用如下方法存储：   
+![avatar](/img/alorithm/tree/binaryTree8.png)    
+这种采用链表结构存储二叉树，称为二叉链表。
 ## 图
 ### 图的基本概念
 
