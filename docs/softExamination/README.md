@@ -9,11 +9,11 @@ title: 软考
 
 ## 数组和链表
 数组：连续的存储空间，读速度快，删除和插入慢，因为删除和插入后需要对后续的存储进行移位   
-![avatar](/img/alorithm/tree/array.jpeg)    
+![avatar](/img/softExamination/tree/array.jpeg)    
 链表：散列的存储空间(也可连续的存储空间)，读速度慢，删除和插入速度快   
-![avatar](/img/alorithm/tree/array2.jpeg)     
+![avatar](/img/softExamination/tree/array2.jpeg)     
 带头结点的链表：头结点数据域不存放数据，头结点的下一个结点是链表的第一个元素，从第一个元素开始存储有效数据。
-   ![avatar](/img/alorithm/tree/list2.gif)    
+   ![avatar](/img/softExamination/tree/list2.gif)    
 数组和链表的优缺点：
 >数组的优点
 * 随机访问性强
@@ -66,12 +66,12 @@ title: 软考
 
 #### 队列
 队列是一种特殊的线性表，特殊之处在于它只允许在表的前端(front)进行删除操作，而在表的后段(rear)进行插入操作，和栈一样，队列是一种操作受限制的线性表，进行插入操作的端称为队尾，进行删除操作的端称为队头。队列中没有元素时，称为空队列。
-  ![avatar](/img/alorithm/tree/list.png)   
+  ![avatar](/img/softExamination/tree/list.png)   
 ## 树和二叉树
 ### 相关术语
 度：   
 &#160; &#160; &#160; &#160;一个结点含有的子树的个树称为该结点的度   
-  ![avatar](/img/alorithm/tree/tree.png)    
+  ![avatar](/img/softExamination/tree/tree.png)    
 叶结点：   
 &#160; &#160; &#160; &#160;度为0的结点      
 分支结点：   
@@ -80,7 +80,7 @@ title: 软考
 &#160; &#160; &#160; &#160;一棵树中，最大的结点的度称为树的度      
 结点的层次：   
 &#160; &#160; &#160; &#160;从根开始定义起，根为第1层，根的子结点为第2层，以此类推
-  ![avatar](/img/alorithm/tree/tree2.png)           
+  ![avatar](/img/softExamination/tree/tree2.png)           
 树的高度或深度：   
 &#160; &#160; &#160; &#160;树中结点的最大层次      
 兄弟结点：   
@@ -107,18 +107,18 @@ title: 软考
 &#160; &#160; &#160; &#160;树中任意结点的子结点之间有顺序关系，这种树称为有序树   
 二叉树：   
 &#160; &#160; &#160; &#160;每个结点最多含有两个子树的树   
-  ![avatar](/img/alorithm/tree/binaryTree.png)   
+  ![avatar](/img/softExamination/tree/binaryTree.png)   
 满二叉树（Perfect Binary Tree(PBT)）：   
 &#160; &#160; &#160; &#160;除最后一层无任何子结点外，每一层上的所有结点都有两个子结点的二叉树(A Perfect Binary Tree is a tree with all leaf nodes at the same depth.All internal nodes have degree 2)   
-  ![avatar](/img/alorithm/tree/PBT.png)    
+  ![avatar](/img/softExamination/tree/PBT.png)    
 完全二叉树(Complete Binary Tree(CBT))：   
 &#160; &#160; &#160; &#160;完全二叉树从根结点到倒数第二结点满足完美二叉树，最后一层可以不完全填充，
 其叶子结点都靠左对齐（A Complete Binary Tree is a binary tree in which every level,except possibly the last,is completely filled,
 and all nodes are as far left as possible）   
-  ![avatar](/img/alorithm/tree/CBT.png)    
+  ![avatar](/img/softExamination/tree/CBT.png)    
 完满二叉树（Full Binary Tree(FBT)):   
 &#160; &#160; &#160; &#160;所有非叶子结点的度都是2，即只要你有孩子，你就必然是有两个孩子（A Full Binary Tree is a tree in which every node other than the leaves has two children）   
-  ![avatar](/img/alorithm/tree/FBT.png)    
+  ![avatar](/img/softExamination/tree/FBT.png)    
 霍夫曼树：   
 &#160; &#160; &#160; &#160;带权路径最短的二叉树称为霍夫曼树或最优二叉树   
 二叉查找树（Binary Search Tree）：   
@@ -128,7 +128,7 @@ and all nodes are as far left as possible）
 * 任意结点的右子树不空，则右子树上所有结点的值均大于它的根结点的值；
 * 任意结点的左、右子树也分别为二叉查找树。
 * 没有键值相等的结点(no duplicate nodes)   
-  ![avatar](/img/alorithm/tree/BST.jpg)
+  ![avatar](/img/softExamination/tree/BST.jpg)
 *****
 ### 二叉树的性质
 * 性质1： 二叉树第i层上的结点数目最多为2<sup>i-1</sup>(i>=1)
@@ -138,14 +138,14 @@ and all nodes are as far left as possible）
 *****
 ###  二叉树的遍历
 二叉树遍历分为四种：前序、中序、后序、层序遍历，其中中序遍历最为重要。为啥叫这个名字？是根据根结点的顺序命令的
-  ![avatar](/img/alorithm/tree/loop.png)  
+  ![avatar](/img/softExamination/tree/loop.png)  
   比如上图正常的一个满结点，A：根结点、B：左结点、C：右结点
   * 前序顺序是ABC（根结点排最先，然后同级先左后右 -> 根左右）；
   * 中序顺序是BAC（先左后根最后右 -> 左根右）；
   * 后续顺序是BCA（先左后右最后根 -> 左右根）；
   * 层序遍历是ABC，按照树的层次自上而下的遍历二叉树
      
- ![avatar](/img/alorithm/tree/loop2.png)  
+ ![avatar](/img/softExamination/tree/loop2.png)  
   比如上图二叉树遍历结果：
  * 前序遍历：ABCDEFGHK；
  * 中序遍历：BDCAEHGKF；
@@ -155,24 +155,24 @@ and all nodes are as far left as possible）
  包括 顺序存储、链式存储
  #### 顺序存储
  二叉树的顺序存储结构就是使用一维数组存储二叉树中的结点，并且结点的存储位置，就是数组的下标索引   
-  ![avatar](/img/alorithm/tree/binaryTree2.png)    
+  ![avatar](/img/softExamination/tree/binaryTree2.png)    
   上图所示的一棵完全二叉树采用顺序存储方式：      
-   ![avatar](/img/alorithm/tree/binaryTree3.png)    
+   ![avatar](/img/softExamination/tree/binaryTree3.png)    
  由图可以看出，当二叉树为完全二叉树时，结点数刚好填满数组。   
  那么当二叉树不为完全二叉树时，采用顺序存储形式如何呢？   
-![avatar](/img/alorithm/tree/binaryTree4.png)    
+![avatar](/img/softExamination/tree/binaryTree4.png)    
  其中浅色结点表示结点不存在，其顺序存储结构：   
-![avatar](/img/alorithm/tree/binaryTree5.png)    
+![avatar](/img/softExamination/tree/binaryTree5.png)    
   其中,^表示数组中此位置没有存储结点。此时可以发现，顺序存储结构中已经出现了空间浪费的情况。   
   那么对于右斜树极端情况对应的顺序存储结构如图：    
-![avatar](/img/alorithm/tree/binaryTree6.png)     
+![avatar](/img/softExamination/tree/binaryTree6.png)     
    由图可以看出，对于这种右斜树极端情况，采用顺序存储的方式是十分浪费空间的，因此，顺序存储一般适用于完全二叉树。   
 #### 二叉链表
 既然顺序存储不能满足二叉树的存储需求，那么考虑采用链式存储。   
 由二叉树定义可知，二叉树的每个结点最多有两个孩子。因此，可以将结点数据结构定义为一个数据和两个指针域。如图所示：   
-![avatar](/img/alorithm/tree/binaryTree7.png)        
+![avatar](/img/softExamination/tree/binaryTree7.png)        
 上面的完全二叉树可采用如下方法存储：   
-![avatar](/img/alorithm/tree/binaryTree8.png)    
+![avatar](/img/softExamination/tree/binaryTree8.png)    
 这种采用链表结构存储二叉树，称为二叉链表。
  *****
 #### 常见的二叉树操作
