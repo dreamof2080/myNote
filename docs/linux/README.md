@@ -33,3 +33,6 @@ ubuntu系统自带的输入法ibus出现bug，切换为中文输入法后键盘�
 ```bash
 rm -rf ~/.cache/ibus/libpinyin
 ```
+
+## ubuntu截图命名
+shift + PrtSc 区域截图
