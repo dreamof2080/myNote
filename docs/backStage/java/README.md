@@ -809,3 +809,12 @@ stream = Arrays.stream(new Integer[]{1, 2, 3, 4, 5, 6, 7});
 int result2 = stream.filter(i -> i % 2 == 0).reduce(1, (i, j) -> i * j);
 Optional.of(result2).ifPresent(System.out::println);
 ```
+
+## Serializable接口
+实现Serializable接口的类建议设置serialVersionUID字段值,如果不设置，那么每次运行时，
+编译器会根据类的内部实现，包括类名、接口名、方法和属性等来自动生成erialVersionUID。
+如果类的源代码有修改，那么重新编译后erialVersionUID的取值可能会发生变化。因此实现Serializable
+接口的类一定要显示地定义serialVersionUID属性值。修改类时需要根据兼容性决定是否修改serialVersionUID值，
+如果是兼容升级，请不要修改serialVersionUID值，避免反序列化失败。如果是不兼容升级，需要修改serialVersionUID值，
+避免反序列化混乱。使用Java原生序列化需注意，Java反序列化时不会调用类的五参构造方法，而是调用native方法
+将成员变量赋值为对应类型的初始值。基于性能及兼容性考虑，不推荐使用java原生序列化。
