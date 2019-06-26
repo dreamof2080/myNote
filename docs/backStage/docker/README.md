@@ -31,6 +31,9 @@ title: docker
 | docker search dockername | 在配置的镜像源中搜索docker |
 | docker pull dockername | 获取一个新的镜像|
 | sudo docker exec -ti cbd53ba42a0a /bin/bash|进入某个容器|
+| docker kill $(docker ps -a -q)|杀死所有正在运行的容器|
+| docker rm $(docker ps -a -q)|删除所有已经停止的容器|
+| docker rmi $(docker images -q)|删除所有的镜像|
 
 ## 运行redis
 ```markdown
