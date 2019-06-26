@@ -827,3 +827,196 @@ const newArr = [1, 2].reduce(function(res, cur) {
   }, []);
   console.log(newArr)
 ```
+
+## JS编程技巧
+### 传参使用默认值
+```js
+// Bad:
+function createMicrobrewery( name ) {
+    const breweryName = name || 'Hipster Brew Co.';
+    // ...
+}
+// Good:
+function createMicrobrewery( name = 'Hipster Brew Co.' ) {
+    // ...
+}
+```
+
+### 如果参数超过两个，建议使用 ES6 的解构语法，不用考虑参数的顺序
+```js
+// Bad:
+function createMenu( title, body, buttonText, cancellable ) {
+    // ...
+}
+// Good:
+function createMenu( { title, body, buttonText, cancellable } ) {
+    // ...
+}
+createMenu({
+    title: 'Foo',
+    body: 'Bar',
+    buttonText: 'Baz',
+    cancellable: true
+});
+```
+
+### 使用 Object.assign 设置默认属性
+```js
+// Bad:
+const menuConfig = {
+  title: null,
+  body: 'Bar',
+  buttonText: null,
+  cancellable: true
+};
+function createMenu(config) {
+  config.title = config.title || 'Foo';
+  config.body = config.body || 'Bar';
+  config.buttonText = config.buttonText || 'Baz';
+  config.cancellable = config.cancellable !== undefined ? config.cancellable : true;
+}
+createMenu(menuConfig);
+// Good:
+const menuConfig = {
+  title: 'Order',
+  // 不包含 body
+  buttonText: 'Send',
+  cancellable: true
+};
+function createMenu(config) {
+  config = Object.assign({
+    title: 'Foo',
+    body: 'Bar',
+    buttonText: 'Baz',
+    cancellable: true
+  }, config);
+  // config : {title: "Order", body: "Bar", buttonText: "Send", cancellable: true}
+  // ...
+}
+createMenu(menuConfig);
+```
+
+### 尽量别用“非”条件句
+```js
+// Bad:
+function isDOMNodeNotPresent(node) {
+  // ...
+}
+if (!isDOMNodeNotPresent(node)) {
+  // ...
+}
+// Good:
+function isDOMNodePresent(node) {
+  // ...
+}
+if (isDOMNodePresent(node)) {
+  // ...
+}
+```
+### 不要过度优化
+现代浏览器已经在底层做了很多优化，过去的很多优化方案都是无效的，会浪费你的时间。
+```js
+// Bad:
+// 现代浏览器已对此( 缓存 list.length )做了优化。
+for (let i = 0, len = list.length; i < len; i++) {
+  // ...
+}
+// Good:
+for (let i = 0; i < list.length; i++) {
+  // ...
+}
+```
+### 使用 ES6 的 class
+在 ES6 之前，没有类的语法，只能用构造函数的方式模拟类，可读性非常差。
+```js
+// Good:
+// 动物
+class Animal {
+  constructor(age) {
+    this.age = age
+  };
+  move() {};
+}
+// 哺乳动物
+class Mammal extends Animal{
+  constructor(age, furColor) {
+    super(age);
+    this.furColor = furColor;
+  };
+  liveBirth() {};
+}
+// 人类
+class Human extends Mammal{
+  constructor(age, furColor, languageSpoken) {
+    super(age, furColor);
+    this.languageSpoken = languageSpoken;
+  };
+  speak() {};
+}
+```
+### 使用链式调用
+这种模式相当有用，可以在很多库中都有使用。它让你的代码简洁优雅。
+```js
+class Car {
+  constructor(make, model, color) {
+    this.make = make;
+    this.model = model;
+    this.color = color;
+  }
+
+  setMake(make) {
+    this.make = make;
+  }
+
+  setModel(model) {
+    this.model = model;
+  }
+
+  setColor(color) {
+    this.color = color;
+  }
+
+  save() {
+    console.log(this.make, this.model, this.color);
+  }
+}
+// Bad:
+const car = new Car('Ford','F-150','red');
+car.setColor('pink');
+car.save();
+
+// Good: 
+class Car {
+  constructor(make, model, color) {
+    this.make = make;
+    this.model = model;
+    this.color = color;
+  }
+
+  setMake(make) {
+    this.make = make;
+    // NOTE: Returning this for chaining
+    return this;
+  }
+
+  setModel(model) {
+    this.model = model;
+    // NOTE: Returning this for chaining
+    return this;
+  }
+
+  setColor(color) {
+    this.color = color;
+    // NOTE: Returning this for chaining
+    return this;
+  }
+
+  save() {
+    console.log(this.make, this.model, this.color);
+    // NOTE: Returning this for chaining
+    return this;
+  }
+}
+
+const car = new Car("Ford", "F-150", "red").setColor("pink").save();
+```
