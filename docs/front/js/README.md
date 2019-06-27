@@ -1020,3 +1020,115 @@ class Car {
 
 const car = new Car("Ford", "F-150", "red").setColor("pink").save();
 ```
+## axios
+发送post请求：
+```js
+axios.post('/cost/list', params)
+                    .then(response => {
+                        const data = response.data.list;
+                        this.page.total = response.data.total;
+                        data.forEach(item => {
+                            this.data.push({
+                                'fnumber': item[0],
+                                'cfkdsourcetype': item[1]
+                            });
+                        });
+                        this.loading = false;
+                    })
+                    .catch(data => {
+                        this.$Notice.error({
+                            title: '错误提示',
+                            desc: data
+                        });
+                    });
+```
+对应的java controller处理：
+```java
+    @RequestMapping("/stock/list")
+    @ResponseBody
+    public JSONObject getStockData(@RequestBody JSONObject params){
+        Map<String,Object> maps = new HashMap<>();
+        maps.put("cu", StringUtils.null2String(params.getString("cu")));
+        maps.put("enddate", StringUtils.null2String(params.getString("enddate")));
+        maps.put("u3objno", StringUtils.null2String(params.getString("u3objno")));
+        maps.put("u2objno", StringUtils.null2String(params.getString("u2objno")));
+        maps.put("u1objno", StringUtils.null2String(params.getString("u1objno")));
+        maps.put("all", StringUtils.null2String(params.getString("all")));
+        maps.put("u2objno1", StringUtils.null2String(params.getString("u2objno1")));
+        maps.put("u1objno1", StringUtils.null2String(params.getString("u1objno1")));
+        maps.put("all1", StringUtils.null2String(params.getString("all1")));
+        maps.put("orgno", StringUtils.null2String(params.getString("orgno")));
+        maps.put("ywwdno", StringUtils.null2String(params.getString("ywwdno")));
+        int pageNo = params.getIntValue("pageNo");
+        int pageSize = params.getIntValue("pageSize");
+        int total = params.getIntValue("total");
+        Page costData = reportService.getStockData(maps, pageNo, pageSize, total);
+        JSONObject data = new JSONObject();
+        data.put("total",costData.getTotalSize());
+        data.put("list",JSON.toJSON(costData.getData()));
+        return data;
+    }
+```
+
+发送get请求：
+```js
+axios.get('/cost/list', {
+                    params: params
+                })
+                    .then(response => {
+                        const data = response.data.list;
+                        this.page.total = response.data.total;
+                        data.forEach(item => {
+                            this.data.push({
+                                'fnumber': item[0],
+                                'cfkdsourcetype': item[1]
+                            });
+                        });
+                        this.loading = false;
+                    })
+                    .catch(data => {
+                        this.$Notice.error({
+                            title: '错误提示',
+                            desc: data
+                        });
+                    });
+```
+对应的java controller处理：
+```java
+@RequestMapping(value = "/cost/list", method = RequestMethod.GET)
+    @ResponseBody
+    public JSONObject getCostData(@RequestParam("startdate") String startdate,
+                                  @RequestParam("enddate") String enddate,
+                                  @RequestParam("cu") String cu,
+                                  @RequestParam(value = "u3objno",required = false) String u3objno,
+                                  @RequestParam(value = "u2objno",required = false) String u2objno,
+                                  @RequestParam(value = "u1objno",required = false) String u1objno,
+                                  @RequestParam(value = "all",required = false) String all,
+                                  @RequestParam(value = "u2objno1",required = false) String u2objno1,
+                                  @RequestParam(value = "u1objno1",required = false) String u1objno1,
+                                  @RequestParam(value = "all1",required = false) String all1,
+                                  @RequestParam(value = "orgno",required = false) String orgno,
+                                  @RequestParam(value = "ywwdno",required = false) String ywwdno,
+                                  @RequestParam(value = "pageNo",required = false,defaultValue = "1") int pageNo,
+                                  @RequestParam(value = "pageSize",required = false,defaultValue = "20") int pageSize,
+                                  @RequestParam(value = "total",required = false,defaultValue = "0") int total){
+        Map<String,Object> maps = new HashMap<>();
+        maps.put("cu", cu);
+        maps.put("startdate", startdate);
+        maps.put("enddate",enddate);
+        maps.put("u3objno",u3objno);
+        maps.put("u2objno",u2objno);
+        maps.put("u1objno",u1objno);
+        maps.put("all",all);
+        maps.put("u2objno1",u2objno1);
+        maps.put("u1objno1",u1objno1);
+        maps.put("all1",all1);
+        maps.put("orgno",orgno);
+        maps.put("ywwdno",ywwdno);
+        Page costData = reportService.getCostData(maps, pageNo, pageSize, total);
+        JSONObject data = new JSONObject();
+        data.put("total",costData.getTotalSize());
+        data.put("list",JSON.toJSON(costData.getData()));
+        return data;
+    }
+```
