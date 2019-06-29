@@ -36,3 +36,7 @@ rm -rf ~/.cache/ibus/libpinyin
 
 ## ubuntu截图命名
 shift + PrtSc 区域截图
+
+## ubuntu快捷方式applications的路径
+1. /usr/share/applications
+2. ～/.local/share/applications
