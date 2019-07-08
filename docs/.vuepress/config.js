@@ -52,6 +52,7 @@ module.exports = {
                   {text: 'swagger', link: '/backStage/frameWork/Spring/swagger/'},
                 ]},
             ]},
+          {text: 'elasticSearch', link: '/backStage/elasticSearch/'},
         ]
       },
       {
