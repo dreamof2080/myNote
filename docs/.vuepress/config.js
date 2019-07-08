@@ -43,6 +43,15 @@ module.exports = {
         items: [
           {text: 'jdk1.8新特性', link: '/backStage/java/'},
           {text: 'docker', link: '/backStage/docker/'},
+          {text: '框架',
+            items: [
+              {text: 'Hibernate', link: '/backStage/frameWork/Hibernate/'},
+              {text: 'Spring', items: [
+                  {text: 'springMVC',link: '/backStage/frameWork/Spring/springMVC/'},
+                  {text: 'springBoot',link: '/backStage/frameWork/Spring/springBoot/'},
+                  {text: 'swagger', link: '/backStage/frameWork/Spring/swagger/'},
+                ]},
+            ]},
         ]
       },
       {
