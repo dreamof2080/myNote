@@ -48,7 +48,7 @@ module.exports = {
               {text: 'Hibernate', link: '/backStage/frameWork/Hibernate/'},
               {text: 'Spring', items: [
                   {text: 'springMVC',link: '/backStage/frameWork/Spring/springMVC/'},
-                  {text: 'springBoot',link: '/backStage/frameWork/Spring/springBoot/'},
+                  {text: 'eureka',link: '/backStage/frameWork/Spring/eureka/'},
                   {text: 'swagger', link: '/backStage/frameWork/Spring/swagger/'},
                 ]},
             ]},
