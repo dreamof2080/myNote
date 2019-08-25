@@ -36,6 +36,8 @@ module.exports = {
           {text: 'oracle', link: '/db/oracle/'},
           {text: 'mysql', link: '/db/mysql/'},
           {text: 'redis', link: '/db/redis/'},
+          {text: 'MongoDB', link: '/db/MongoDB/'},
+          {text: 'postgreSQL', link: '/db/postgreSQL/'},
         ]
       },
       {
