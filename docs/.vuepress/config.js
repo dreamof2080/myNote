@@ -36,6 +36,7 @@ module.exports = {
           {text: 'oracle', link: '/db/oracle/'},
           {text: 'mysql', link: '/db/mysql/'},
           {text: 'redis', link: '/db/redis/'},
+          {text: 'postgreSQL', link: '/db/postgreSQL/'},
         ]
       },
       {
@@ -46,11 +47,9 @@ module.exports = {
           {text: '框架',
             items: [
               {text: 'Hibernate', link: '/backStage/frameWork/Hibernate/'},
-              {text: 'Spring', items: [
-                  {text: 'springMVC',link: '/backStage/frameWork/Spring/springMVC/'},
-                  {text: 'eureka',link: '/backStage/frameWork/Spring/eureka/'},
-                  {text: 'swagger', link: '/backStage/frameWork/Spring/swagger/'},
-                ]},
+              {text: 'springMVC',link: '/backStage/frameWork/Spring/springMVC/'},
+              {text: 'eureka',link: '/backStage/frameWork/Spring/eureka/'},
+              {text: 'swagger', link: '/backStage/frameWork/Spring/swagger/'},
             ]},
           {text: 'elasticSearch', link: '/backStage/elasticSearch/'},
         ]
