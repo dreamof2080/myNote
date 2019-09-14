@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="982aaa06-38f8-4202-a79c-dc5c28cd9ccd" name="Default Changelist" comment="" />
+    <list default="true" id="982aaa06-38f8-4202-a79c-dc5c28cd9ccd" name="Default Changelist" comment="权限分表功能说明">
+      <change afterPath="$PROJECT_DIR$/docs/db/postgreSQL/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.vuepress/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.vuepress/config.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -15,51 +19,94 @@
     <session id="1811831705">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.closed" value="50" />
+          <entry key="project.open.time.0" value="3" />
+          <entry key="project.open.time.1" value="8" />
+          <entry key="project.open.time.10" value="5" />
+          <entry key="project.open.time.11" value="6" />
+          <entry key="project.open.time.12" value="3" />
+          <entry key="project.open.time.13" value="8" />
+          <entry key="project.open.time.14" value="2" />
+          <entry key="project.open.time.15" value="3" />
+          <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.17" value="1" />
+          <entry key="project.open.time.18" value="1" />
+          <entry key="project.open.time.2" value="5" />
+          <entry key="project.open.time.20" value="1" />
+          <entry key="project.open.time.22" value="1" />
+          <entry key="project.open.time.24" value="1" />
+          <entry key="project.open.time.29" value="1" />
+          <entry key="project.open.time.3" value="2" />
+          <entry key="project.open.time.31" value="1" />
+          <entry key="project.open.time.34" value="1" />
+          <entry key="project.open.time.4" value="2" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.9" value="3" />
+          <entry key="project.opened" value="61" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="js" value="4" />
-          <entry key="json" value="5" />
-          <entry key="md" value="18" />
+          <entry key="js" value="12" />
+          <entry key="json" value="10" />
+          <entry key="md" value="101" />
           <entry key="sh" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JSON" value="5" />
-          <entry key="JavaScript" value="4" />
-          <entry key="Markdown" value="18" />
-          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="JSON" value="10" />
+          <entry key="JavaScript" value="12" />
+          <entry key="Markdown" value="99" />
+          <entry key="PLAIN_TEXT" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="717" />
+          <entry key="js" value="914" />
           <entry key="json" value="67" />
-          <entry key="md" value="131" />
+          <entry key="md" value="28597" />
           <entry key="sh" value="6" />
+          <entry key="txt" value="547" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="Bash" value="61" />
           <entry key="JSON" value="67" />
-          <entry key="JavaScript" value="717" />
-          <entry key="Markdown" value="131" />
-          <entry key="PLAIN_TEXT" value="6" />
+          <entry key="JavaScript" value="942" />
+          <entry key="Markdown" value="28508" />
+          <entry key="PLAIN_TEXT" value="553" />
         </counts>
       </usages-collector>
     </session>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="myNote" />
+  </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/docs/deploy.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="8" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+        <entry file="file://$PROJECT_DIR$/docs/db/postgreSQL/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="300">
+                <caret line="629" column="34" selection-start-line="629" selection-start-column="34" selection-end-line="629" selection-end-column="34" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docs/backStage/elasticSearch/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="528">
+                <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -67,22 +114,36 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/.vuepress/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="13" column="55" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+            <state relative-caret-position="123">
+              <caret line="57" column="19" lean-forward="true" selection-start-line="57" selection-start-column="19" selection-end-line="57" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find />
+      <find>sysrole</find>
+      <find>角色信息</find>
+      <find>treeViwerInfo</find>
+      <find>permissionrule</find>
+      <find>死锁</find>
+      <find>alorithm</find>
+      <find>array_to_json</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>|</replace>
+      <replace />
+      <replace>softExamination</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/docs/.vuepress</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -91,15 +152,35 @@
         <option value="$PROJECT_DIR$/docs/java/README.md" />
         <option value="$PROJECT_DIR$/docs/backFrameWork/README.md" />
         <option value="$PROJECT_DIR$/docs/backStage/frameWork/README.md" />
-        <option value="$PROJECT_DIR$/docs/backStage/java/README.md" />
-        <option value="$PROJECT_DIR$/docs/db/mysql/README.md" />
-        <option value="$PROJECT_DIR$/docs/db/oracle/README.md" />
-        <option value="$PROJECT_DIR$/docs/front/design/README.md" />
-        <option value="$PROJECT_DIR$/docs/front/vuejs/README.md" />
-        <option value="$PROJECT_DIR$/docs/linux/README.md" />
-        <option value="$PROJECT_DIR$/docs/README.md" />
         <option value="$PROJECT_DIR$/docs/deploy.sh" />
+        <option value="$PROJECT_DIR$/docs/oaSystem/oaSets/README.md" />
+        <option value="$PROJECT_DIR$/docs/oaSystem/permissionSplit/README.md" />
+        <option value="$PROJECT_DIR$/docs/README.md" />
+        <option value="$PROJECT_DIR$/docs/db/mysql/README.md" />
+        <option value="$PROJECT_DIR$/docs/front/design/README.md" />
+        <option value="$PROJECT_DIR$/docs/backStage/java/README.md" />
+        <option value="$PROJECT_DIR$/docs/oaSystem/oaCode/README.md" />
+        <option value="$PROJECT_DIR$/docs/oaSystem/dbBack/README.md" />
+        <option value="$PROJECT_DIR$/docs/db/oracle/README.md" />
+        <option value="$PROJECT_DIR$/docs/oaSystem/powerOffRecovery/README.md" />
+        <option value="$PROJECT_DIR$/docs/oaSystem/reportList/README.md" />
+        <option value="$PROJECT_DIR$/docs/oaSystem/update/README.md" />
+        <option value="$PROJECT_DIR$/docs/linux/README.md" />
+        <option value="$PROJECT_DIR$/docs/backStage/tomcat/README.md" />
+        <option value="$PROJECT_DIR$/docs/oaSystem/oaTables/README.md" />
+        <option value="$PROJECT_DIR$/docs/vcs/svn/README.md" />
+        <option value="$PROJECT_DIR$/docs/vcs/git/README.md" />
+        <option value="$PROJECT_DIR$/docs/alorithm/README.md" />
+        <option value="$PROJECT_DIR$/docs/softExamination/README.md" />
+        <option value="$PROJECT_DIR$/docs/front/vuejs/README.md" />
+        <option value="$PROJECT_DIR$/docs/front/npm/README.md" />
+        <option value="$PROJECT_DIR$/docs/backStage/docker/README.md" />
+        <option value="$PROJECT_DIR$/docs/front/js/README.md" />
+        <option value="$PROJECT_DIR$/docs/backStage/frameWork/Spring/token/README.md" />
+        <option value="$PROJECT_DIR$/docs/backStage/frameWork/Spring/springBoot/README.md" />
         <option value="$PROJECT_DIR$/docs/.vuepress/config.js" />
+        <option value="$PROJECT_DIR$/docs/backStage/elasticSearch/README.md" />
+        <option value="$PROJECT_DIR$/docs/db/postgreSQL/README.md" />
       </list>
     </option>
   </component>
@@ -111,16 +192,19 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1108" />
-    <option name="y" value="37" />
-    <option name="width" value="1682" />
-    <option name="height" value="1011" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="35" />
+    <option name="y" value="27" />
+    <option name="width" value="1377" />
+    <option name="height" value="519" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -163,7 +247,8 @@
               <item name="myNote" type="462c0819:PsiDirectoryNode" />
               <item name="docs" type="462c0819:PsiDirectoryNode" />
               <item name="backStage" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="frameWork" type="462c0819:PsiDirectoryNode" />
+              <item name="Spring" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="myNote" type="b2602c69:ProjectViewProjectNode" />
@@ -176,40 +261,27 @@
               <item name="myNote" type="462c0819:PsiDirectoryNode" />
               <item name="docs" type="462c0819:PsiDirectoryNode" />
               <item name="db" type="462c0819:PsiDirectoryNode" />
-              <item name="mysql" type="462c0819:PsiDirectoryNode" />
+              <item name="postgreSQL" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="myNote" type="b2602c69:ProjectViewProjectNode" />
               <item name="myNote" type="462c0819:PsiDirectoryNode" />
               <item name="docs" type="462c0819:PsiDirectoryNode" />
               <item name="db" type="462c0819:PsiDirectoryNode" />
-              <item name="oracle" type="462c0819:PsiDirectoryNode" />
+              <item name="redis" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="myNote" type="b2602c69:ProjectViewProjectNode" />
               <item name="myNote" type="462c0819:PsiDirectoryNode" />
               <item name="docs" type="462c0819:PsiDirectoryNode" />
-              <item name="front" type="462c0819:PsiDirectoryNode" />
+              <item name="oaSystem" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="myNote" type="b2602c69:ProjectViewProjectNode" />
               <item name="myNote" type="462c0819:PsiDirectoryNode" />
               <item name="docs" type="462c0819:PsiDirectoryNode" />
-              <item name="front" type="462c0819:PsiDirectoryNode" />
-              <item name="design" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myNote" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myNote" type="462c0819:PsiDirectoryNode" />
-              <item name="docs" type="462c0819:PsiDirectoryNode" />
-              <item name="front" type="462c0819:PsiDirectoryNode" />
-              <item name="vuejs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myNote" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myNote" type="462c0819:PsiDirectoryNode" />
-              <item name="docs" type="462c0819:PsiDirectoryNode" />
-              <item name="linux" type="462c0819:PsiDirectoryNode" />
+              <item name="oaSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="oaTables" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -220,21 +292,25 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../webssh" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs/.vuepress/public/img/oaSystem/update/20181214" />
+      <recent name="$PROJECT_DIR$/docs/.vuepress/public/img" />
+      <recent name="$PROJECT_DIR$/docs/.vuepress/public/front" />
       <recent name="$PROJECT_DIR$/docs/backStage" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/docs/linux" />
-      <recent name="$PROJECT_DIR$/docs/front/vuejs" />
-      <recent name="$PROJECT_DIR$/docs/front/design" />
-      <recent name="$PROJECT_DIR$/docs/db/oracle" />
-      <recent name="$PROJECT_DIR$/docs/db/mysql" />
+      <recent name="$PROJECT_DIR$/docs/db/postgreSQL" />
+      <recent name="$PROJECT_DIR$/docs/backStage/frameWork/Spring/token" />
+      <recent name="$PROJECT_DIR$/docs/backStage/frameWork/Spring" />
+      <recent name="$PROJECT_DIR$/docs/front/npm" />
+      <recent name="$PROJECT_DIR$/docs/.vuepress/public/img" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -250,7 +326,7 @@
     </option>
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>$USER_HOME$/.subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -260,51 +336,421 @@
       <option name="presentableId" value="Default" />
       <updated>1537965268877</updated>
       <workItem from="1537965269939" duration="3402000" />
+      <workItem from="1538967870859" duration="1750000" />
+      <workItem from="1538976796664" duration="13259000" />
+      <workItem from="1539047316304" duration="17560000" />
+      <workItem from="1539131487870" duration="5513000" />
+      <workItem from="1539218121031" duration="605000" />
+      <workItem from="1539223772342" duration="620000" />
+      <workItem from="1539311983443" duration="241000" />
+      <workItem from="1539655565137" duration="772000" />
+      <workItem from="1539911259540" duration="10233000" />
+      <workItem from="1540193636982" duration="555000" />
+      <workItem from="1540194244724" duration="2906000" />
+      <workItem from="1540255107084" duration="1421000" />
+      <workItem from="1540289639832" duration="633000" />
+      <workItem from="1540428924081" duration="3153000" />
+      <workItem from="1540516662605" duration="1987000" />
+      <workItem from="1543807708102" duration="599000" />
+      <workItem from="1543990620231" duration="30000" />
+      <workItem from="1544076184580" duration="627000" />
+      <workItem from="1544148838201" duration="12000" />
+      <workItem from="1544152662840" duration="6815000" />
+      <workItem from="1544421247521" duration="402000" />
+      <workItem from="1544773623561" duration="5490000" />
+      <workItem from="1545094089740" duration="6504000" />
+      <workItem from="1545181497751" duration="1789000" />
+      <workItem from="1545353724021" duration="6821000" />
+      <workItem from="1545442680347" duration="1392000" />
+      <workItem from="1545467502426" duration="1659000" />
+      <workItem from="1545614007004" duration="68000" />
+      <workItem from="1545880696633" duration="761000" />
+      <workItem from="1545967042501" duration="550000" />
+      <workItem from="1546066287416" duration="91000" />
+      <workItem from="1546943012157" duration="408000" />
+      <workItem from="1547091976116" duration="549000" />
+      <workItem from="1547169257761" duration="8285000" />
+      <workItem from="1547427175787" duration="1135000" />
+      <workItem from="1550556676910" duration="99000" />
+      <workItem from="1557274901241" duration="3589000" />
+      <workItem from="1557309915517" duration="10000" />
+      <workItem from="1557362696017" duration="6097000" />
+      <workItem from="1557449376349" duration="4338000" />
+      <workItem from="1557476962703" duration="117000" />
+      <workItem from="1557709257612" duration="1238000" />
+      <workItem from="1560903663411" duration="490000" />
+      <workItem from="1560912013527" duration="1956000" />
+      <workItem from="1560992685875" duration="69000" />
+      <workItem from="1561379660698" duration="148000" />
+      <workItem from="1561426826413" duration="1407000" />
+      <workItem from="1561446061268" duration="625000" />
+      <workItem from="1561512307147" duration="2483000" />
+      <workItem from="1561547653107" duration="1122000" />
+      <workItem from="1561624881046" duration="652000" />
+      <workItem from="1561625583412" duration="734000" />
+      <workItem from="1562379933483" duration="1671000" />
+      <workItem from="1562480204968" duration="651000" />
+      <workItem from="1562589109842" duration="3052000" />
+      <workItem from="1563089167321" duration="2790000" />
+      <workItem from="1565431130105" duration="1549000" />
+      <workItem from="1565485627601" duration="195000" />
+      <workItem from="1568427966890" duration="487000" />
+      <workItem from="1568433952131" duration="17458000" />
     </task>
+    <task id="LOCAL-00001" summary="权限分表功能说明">
+      <created>1538985613039</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1538985613039</updated>
+    </task>
+    <task id="LOCAL-00002" summary="OA系统配置增加集群IP地址配置说明">
+      <created>1538985642977</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1538985642977</updated>
+    </task>
+    <task id="LOCAL-00003" summary="增加数据库回导功能说明">
+      <created>1538990578286</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1538990578286</updated>
+    </task>
+    <task id="LOCAL-00004" summary="首页设计">
+      <created>1538992259824</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1538992259824</updated>
+    </task>
+    <task id="LOCAL-00005" summary="完善OA表结构">
+      <created>1539078923599</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1539078923599</updated>
+    </task>
+    <task id="LOCAL-00006" summary="增加断电重启说明">
+      <created>1539078940492</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1539078940492</updated>
+    </task>
+    <task id="LOCAL-00007" summary="更新">
+      <created>1539078951453</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1539078951453</updated>
+    </task>
+    <task id="LOCAL-00008" summary="增加jdk1.8新特性说明">
+      <created>1539137562686</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1539137562686</updated>
+    </task>
+    <task id="LOCAL-00009" summary="增加requestlog进行分区表的应用">
+      <created>1539929003584</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1539929003588</updated>
+    </task>
+    <task id="LOCAL-00010" summary="权限分表功能说明">
+      <created>1539945809436</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1539945809436</updated>
+    </task>
+    <task id="LOCAL-00011" summary="增加一些代码说明">
+      <created>1540255170213</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1540255170213</updated>
+    </task>
+    <task id="LOCAL-00012" summary="增加linux的一些基本命令">
+      <created>1544173835281</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1544173835281</updated>
+    </task>
+    <task id="LOCAL-00013" summary="异常断电后的oracle和activemq恢复">
+      <created>1544173858235</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1544173858235</updated>
+    </task>
+    <task id="LOCAL-00014" summary="增加oracle的一些功能说明">
+      <created>1544173882096</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1544173882096</updated>
+    </task>
+    <task id="LOCAL-00015" summary="断电重启说明更新">
+      <created>1544773645548</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1544773645549</updated>
+    </task>
+    <task id="LOCAL-00016" summary="增加布局设计器更新说明">
+      <created>1544777899040</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1544777899040</updated>
+    </task>
+    <task id="LOCAL-00017" summary="增加JS知识">
+      <created>1545096254875</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1545096254875</updated>
+    </task>
+    <task id="LOCAL-00018" summary="增加列表功能说明">
+      <created>1545099538237</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1545099538237</updated>
+    </task>
+    <task id="LOCAL-00019" summary="增加rdesktop命令和输入法bug解决方案">
+      <created>1545182672936</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1545182672936</updated>
+    </task>
+    <task id="LOCAL-00020" summary="docker容器日期时间与宿主机不一致解决方法">
+      <created>1545370893853</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1545370893853</updated>
+    </task>
+    <task id="LOCAL-00021" summary="增加布局设计器更新说明">
+      <created>1545392155348</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1545392155348</updated>
+    </task>
+    <task id="LOCAL-00022" summary="增加linux内容">
+      <created>1545464324832</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1545464324832</updated>
+    </task>
+    <task id="LOCAL-00023" summary="布局设计器增加说明">
+      <created>1545471892556</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1545471892556</updated>
+    </task>
+    <task id="LOCAL-00024" summary="增加tomcat相关知识">
+      <created>1546066339979</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1546066339979</updated>
+    </task>
+    <task id="LOCAL-00025" summary="修改">
+      <created>1546066352631</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1546066352631</updated>
+    </task>
+    <task id="LOCAL-00026" summary="增加版本管理说明">
+      <created>1547179084744</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1547179084744</updated>
+    </task>
+    <task id="LOCAL-00027" summary="增加二叉树的说明">
+      <created>1557277787795</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1557277787795</updated>
+    </task>
+    <task id="LOCAL-00028" summary="增加说明">
+      <created>1557364698528</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1557364698528</updated>
+    </task>
+    <task id="LOCAL-00029" summary="增加数组和链表的说明">
+      <created>1557367412462</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1557367412462</updated>
+    </task>
+    <task id="LOCAL-00030" summary="增加栈的说明">
+      <created>1557450306194</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1557450306194</updated>
+    </task>
+    <task id="LOCAL-00031" summary="文件夹分类名称修改">
+      <created>1557453436016</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1557453436016</updated>
+    </task>
+    <task id="LOCAL-00032" summary="增加es6语法的相关说明">
+      <created>1560904101454</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1560904101454</updated>
+    </task>
+    <task id="LOCAL-00033" summary="vue增加this.$set的使用说明">
+      <created>1560912048825</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1560912048825</updated>
+    </task>
+    <task id="LOCAL-00034" summary="vue增加render函数的使用说明">
+      <created>1560913755790</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1560913755790</updated>
+    </task>
+    <task id="LOCAL-00035" summary="增加springMVC说明">
+      <created>1561379791019</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1561379791019</updated>
+    </task>
+    <task id="LOCAL-00036" summary="增加docker命令">
+      <created>1561512566295</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1561512566295</updated>
+    </task>
+    <task id="LOCAL-00037" summary="增加npm命令">
+      <created>1561512582139</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1561512582139</updated>
+    </task>
+    <task id="LOCAL-00038" summary="axios发送get、post说明">
+      <created>1561625509356</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1561625509357</updated>
+    </task>
+    <task id="LOCAL-00039" summary="增加swagger和springBoot">
+      <created>1562380108636</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1562380108636</updated>
+    </task>
+    <task id="LOCAL-00040" summary="token功能说明">
+      <created>1562511220420</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1562511220420</updated>
+    </task>
+    <task id="LOCAL-00041" summary="es基础操作">
+      <created>1562597791655</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1562597791656</updated>
+    </task>
+    <task id="LOCAL-00042" summary="eureka说明">
+      <created>1563109583635</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1563109583635</updated>
+    </task>
+    <task id="LOCAL-00043" summary="更新特殊字符">
+      <created>1568473489602</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1568473489602</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3402000" />
+    <option name="totallyTimeSpent" value="161624000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1042" y="141" width="1682" height="1011" extended-state="0" />
-    <editor active="true" />
+    <frame x="35" y="27" width="1885" height="1053" extended-state="6" />
     <layout>
-      <window_info id="npm" side_tool="true" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.15051174" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49588138" weight="0.27121374" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" weight="0.3295583" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="npm" order="2" sideWeight="0.5041186" side_tool="true" weight="0.20336391" />
+      <window_info id="Favorites" order="3" sideWeight="0.50247115" side_tool="true" weight="0.16437308" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.31664854" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3294893" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.49923548" visible="true" weight="0.43416756" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50254667" side_tool="true" weight="0.45918366" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4974533" weight="0.87377584" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info id="npm" order="0" side_tool="true" />
-      <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.15051174" />
-      <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="1" weight="0.3295583" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Find" order="5" />
-      <window_info anchor="bottom" id="Run" order="6" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49588138" visible="true" weight="0.37862512" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="2" sideWeight="0.5041186" side_tool="true" weight="0.20336391" />
+      <window_info id="Favorites" order="3" sideWeight="0.50247115" side_tool="true" weight="0.16437308" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3297062" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3294893" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49923548" weight="0.4352557" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50254667" side_tool="true" weight="0.45918366" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4974533" weight="0.28944504" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -313,25 +759,93 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
+    <MESSAGE value="增加rdesktop命令和输入法bug解决方案" />
+    <MESSAGE value="docker容器日期时间与宿主机不一致解决方法" />
+    <MESSAGE value="增加布局设计器更新说明" />
+    <MESSAGE value="增加linux内容" />
+    <MESSAGE value="布局设计器增加说明" />
+    <MESSAGE value="增加tomcat相关知识" />
+    <MESSAGE value="修改" />
+    <MESSAGE value="增加版本管理说明" />
+    <MESSAGE value="增加二叉树的说明" />
+    <MESSAGE value="增加说明" />
+    <MESSAGE value="增加数组和链表的说明" />
+    <MESSAGE value="增加栈的说明" />
+    <MESSAGE value="文件夹分类名称修改" />
+    <MESSAGE value="增加es6语法的相关说明" />
+    <MESSAGE value="vue增加this.$set的使用说明" />
+    <MESSAGE value="vue增加render函数的使用说明" />
+    <MESSAGE value="增加springMVC说明" />
+    <MESSAGE value="增加docker命令" />
+    <MESSAGE value="增加npm命令" />
+    <MESSAGE value="axios发送get、post说明" />
+    <MESSAGE value="增加swagger和springBoot" />
+    <MESSAGE value="token功能说明" />
+    <MESSAGE value="es基础操作" />
+    <MESSAGE value="eureka说明" />
+    <MESSAGE value="更新特殊字符" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新特殊字符" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/docs/backStage/frameWork/README.md">
+    <entry file="file://$PROJECT_DIR$/docs/oaSystem/oaSets/README.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="3" lean-forward="true" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+        </state>
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="189">
-            <caret line="9" column="12" lean-forward="true" selection-end-line="9" selection-end-column="43" />
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="288">
+            <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/backStage/java/README.md">
+    <entry file="file://$PROJECT_DIR$/docs/.vuepress/dist/manifest/server.json" />
+    <entry file="file://$PROJECT_DIR$/docs/deploy.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/oaSystem/permissionSplit/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="105">
-            <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        <state split_layout="FIRST">
+          <first_editor>
+            <caret selection-end-line="3" selection-end-column="3" />
           </first_editor>
           <second_editor />
         </state>
@@ -340,8 +854,38 @@
     <entry file="file://$PROJECT_DIR$/docs/db/mysql/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="105">
-            <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+          <first_editor relative-caret-position="168">
+            <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="13" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/oaSystem/oaCode/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="288">
+            <caret line="12" column="71" selection-start-line="12" selection-start-column="71" selection-end-line="12" selection-end-column="71" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/oaSystem/dbBack/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="4152">
+            <caret line="173" column="129" selection-start-line="173" selection-start-column="129" selection-end-line="173" selection-end-column="129" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/oaSystem/powerOffRecovery/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="24">
+            <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
           </first_editor>
           <second_editor />
         </state>
@@ -349,29 +893,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/db/oracle/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="105">
-            <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="96">
+            <caret line="4" selection-start-line="4" selection-end-line="4" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/front/design/README.md">
+    <entry file="file://$PROJECT_DIR$/docs/oaSystem/reportList/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="105">
-            <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="450">
+            <caret line="33" column="3" selection-start-line="33" selection-start-column="3" selection-end-line="33" selection-end-column="3" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/front/vuejs/README.md">
+    <entry file="file://$PROJECT_DIR$/docs/backStage/tomcat/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="105">
-            <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+          <first_editor relative-caret-position="216">
+            <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/oaSystem/update/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="507">
+            <caret line="63" column="17" selection-start-line="63" selection-start-column="17" selection-end-line="63" selection-end-column="17" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="48">
+            <caret line="2" column="29" lean-forward="true" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="29" />
           </first_editor>
           <second_editor />
         </state>
@@ -380,18 +944,162 @@
     <entry file="file://$PROJECT_DIR$/docs/linux/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="105">
-            <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+          <first_editor relative-caret-position="-336">
+            <caret line="1" selection-start-line="1" selection-end-line="2" selection-end-column="14" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/README.md">
+    <entry file="file://$PROJECT_DIR$/docs/vcs/git/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="189">
-            <caret line="9" column="4" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <first_editor relative-caret-position="120">
+            <caret line="5" column="4" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/vcs/svn/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="48">
+            <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/front/vuejs/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="432">
+            <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/backStage/java/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="19488">
+            <caret line="812" selection-start-line="812" selection-end-line="819" selection-end-column="43" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/softExamination/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="96">
+            <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/backStage/frameWork/Spring/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/front/design/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="168">
+            <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/backStage/frameWork/Spring/springMVC/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="840">
+            <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/backStage/docker/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="567">
+            <caret line="101" column="20" selection-start-line="101" selection-start-column="20" selection-end-line="101" selection-end-column="20" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/backStage/frameWork/Spring/swagger/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/backStage/frameWork/Spring/token/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="192">
+            <caret line="8" column="56" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/backStage/frameWork/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/backStage/frameWork/Spring/eureka/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="1800">
+            <caret line="75" column="105" selection-start-line="75" selection-start-column="105" selection-end-line="75" selection-end-column="105" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/front/npm/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="168">
+            <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/front/js/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="27168">
+            <caret line="1132" column="5" selection-start-line="1132" selection-start-column="5" selection-end-line="1132" selection-end-column="5" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/oaSystem/oaTables/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="264">
+            <caret line="337" selection-start-line="337" selection-end-line="339" selection-end-column="35" />
           </first_editor>
           <second_editor />
         </state>
@@ -399,22 +1107,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+        <state relative-caret-position="264">
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/.vuepress/config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="55" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="55" />
+        <state relative-caret-position="123">
+          <caret line="57" column="19" lean-forward="true" selection-start-line="57" selection-start-column="19" selection-end-line="57" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/deploy.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="8" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+    <entry file="file://$PROJECT_DIR$/docs/backStage/elasticSearch/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="528">
+            <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/db/postgreSQL/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="300">
+            <caret line="629" column="34" selection-start-line="629" selection-start-column="34" selection-end-line="629" selection-end-column="34" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
