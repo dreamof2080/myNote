@@ -5,6 +5,7 @@ title: elasticSearch
 
 
 ## 基础命令
+
 | 命令      | 说明     | 
 | ------------- |:-------------| 
 | curl -X GET "localhost:9200/_cat/health?v" | 健康检查 |
@@ -19,4 +20,4 @@ title: elasticSearch
 
 
 ## 访问数据的模式
-<HTTP Verb> /<Index>/<Endpoint>/<ID>
+\<HTTP Verb> /\<Index>/\<Endpoint>/\<ID>
