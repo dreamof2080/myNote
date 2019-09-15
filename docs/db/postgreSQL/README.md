@@ -641,3 +641,697 @@ SELECT NAME FROM COMPANY GROUP BY name HAVING count(name) < 2;
 SELECT DISTINCT name FROM COMPANY;
 ```
 
+## 约束
+* not null
+* unique
+* primary key
+* foreign key
+* check: 保证列中的值复合制定的条件
+* exclusion: 排他约束，保证如果将任何两行的指定列或表达式使用指定操作府进行比较，至少其中一个操作府比较将会返回false或空值
+
+### check约束
+check约束保证列中的所有值满足某一条件，即对输入一条记录要进行检查。如果条件为false,
+则记录违反了约束，且不能输入到表。
+
+实例：
+下面实例建一个新的表company5,增加了五列。在这里，我们为salary列添加check，所以工资不能为零：
+```sql
+CREATE TABLE COMPANY5(
+   ID INT PRIMARY KEY     NOT NULL,
+   NAME           TEXT    NOT NULL,
+   AGE            INT     NOT NULL,
+   ADDRESS        CHAR(50),
+   SALARY         REAL    CHECK(SALARY > 0)
+);
+```
+
+### exclusion 约束
+exclusion约束确保如果使用指定的运算符在指定列或表达式上比较任意两行，至少其中一个运算符比较返回false或null
+
+实例：
+```sql
+CREATE TABLE COMPANY7(
+   ID INT PRIMARY KEY     NOT NULL,
+   NAME           TEXT,
+   AGE            INT  ,
+   ADDRESS        CHAR(50),
+   SALARY         REAL,
+   EXCLUDE USING gist
+   (NAME WITH =,  -- 如果满足 NAME 相同，AGE 不相同则不允许插入，否则允许插入
+   AGE WITH <>)   -- 其比较的结果是如果整个表边式返回 true，则不允许插入，否则允许
+);
+```
+
+### 删除约束
+删除约束必须知道约束名称，已经知道名称来删除约束很简单，如果不知道名称，则需要找到系统生成的名称，使用\d表名可以找到这些信息
+```sql
+alter table table_name drop constraint some_name;
+```
+
+## join
+五种连接类型：
+* cross join: 交叉连接
+* inner join: 内连接
+* left outer join: 左外连接
+* right outer join: 右外连接
+* full outer join: 全外连接
+
+### cross join
+交叉连接把第一个表的每一行与第二个表的每一行进行匹配，如果两个输入表分别有x和y行，
+则结果表有x*y行。
+由于交叉连接有可能产生非常大的表，使用时必须谨慎，只在适当的时候使用它们。
+```sql
+select ... from table1 cross join table2 ...
+```
+
+### inner join
+内连接根据连接谓词结合两个表的列值来创建一个新的结果表。
+查询会把table1中的每一行与table2中的每一行进行比较，找到所有满足连接谓词的行的匹配对
+
+当满足连接谓词时，A和B行的每个匹配对的列值会合并成一个结果行。
+内连接是最常见的连接类型，是默认的连接类型。
+inner关键字是可选的。
+```sql
+select table1.column1,table2.column2... 
+from table1 inner join table2
+on table1.common_field = table2.common_field;
+```
+
+### left outer join
+外部连接是内部连接的扩展。SQL标准定义了三种类型的外部连接：left、right 和 full,
+对于左外连接，首先执行一个内连接。然后，对于表T1中不满足表T2中连接条件的每一行，其中T2的列中有null值
+也会添加一个连接行。因此，连接的表在T1中每一行至少有一行。
+```sql
+select ... from table1 left outer join table2 on conditional_expression ...
+```
+```markdown
+runoobdb=# SELECT EMP_ID, NAME, DEPT FROM COMPANY LEFT OUTER JOIN DEPARTMENT ON COMPANY.ID = DEPARTMENT.EMP_ID;
+ emp_id | name  |      dept
+--------+-------+----------------
+      1 | Paul  | IT Billing
+      2 | Allen | Engineering
+      7 | James | Finance
+        | James | 
+        | David | 
+        | Paul  | 
+        | Kim   | 
+        | Mark  | 
+        | Teddy | 
+        | James | 
+(10 rows)
+```
+
+### right outer join
+右外连接，首先执行内部连接。然后，对于表T2中不满足表T1中连接条件的每一行，其中T1列中的值为空也会添加一个连接行。
+这与左连接相反；对于T2中的每一行，结果表总是有一行。
+```sql
+select ... from table1 right outer join table2 on conditional_expression ...
+```
+```markdown
+runoobdb=# SELECT EMP_ID, NAME, DEPT FROM COMPANY RIGHT OUTER JOIN DEPARTMENT ON COMPANY.ID = DEPARTMENT.EMP_ID;
+ emp_id | name  |    dept
+--------+-------+-----------------
+      1 | Paul  | IT Billing
+      2 | Allen | Engineering
+      7 | James | Finance
+(3 rows)
+```
+
+### full outer join
+全外连接，首先执行内部连接。然后，对于表T1中不满足表T2中任何行连接条件的每一行，如果T2的列中有null值也会添加一个到结果中。
+此外，对于T2中不满足T1中的任何行连接条件的每一行，将会添加T1列中包含null值的到结果中。
+```sql
+select ... from table1 full outer join table2 on conditional_exprssion ...
+```
+```markdown
+runoobdb=# SELECT EMP_ID, NAME, DEPT FROM COMPANY FULL OUTER JOIN DEPARTMENT ON COMPANY.ID = DEPARTMENT.EMP_ID;
+ emp_id | name  |      dept
+--------+-------+-----------------
+      1 | Paul  | IT Billing
+      2 | Allen | Engineering
+      7 | James | Finance
+        | James | 
+        | David | 
+        | Paul  | 
+        | Kim   | 
+        | Mark  | 
+        | Teddy | 
+        | James | 
+(10 rows)
+```
+
+## union
+union操作符合并两个或多个select语句的结果。
+
+请注意，union内部的每个select语句必须拥有相同数量的列，列也必须拥有相似的数据类型。同时，每个select语句中的顺序必须相同。
+
+union all子句：连接两个有重复行的select语句，默认地，union操作符选取不同的值。如果允许重复的值，请使用union all.
+
+## NULL
+null值代表遗漏的未知数据。
+默认地，表的列可以存放null值。
+
+null的判断： is null 和 is not null
+
+## 别名
+我们可以用SQL重命名一张表或者一个字段的名称，这个名称就叫该表或该字段的别名。
+
+表的别名：
+```sql
+SELECT column1, column2....
+FROM table_name AS alias_name
+WHERE [condition];
+```
+
+列的别名：
+```sql
+SELECT column_name AS alias_name
+FROM table_name
+WHERE [condition];
+```
+
+## 触发器
+postgreSQL触发器是数据库的回调函数，它会在指定的数据库事件发生时自动执行/调用。
+
+下面时关于postgreSQL触发器几个比较重要的点：
+* postgreSQL触发器可以在下面几种情况下触发：
+    . 在执行操作之前(在检查约束并尝试插入、更新或删除之前)
+    . 在执行操作之后（在检查约束并插入、更新或删除完成之后）
+    . 更新操作（在对一个视图进行插入、更新、删除时）
+* 触发器的for each row属性是可选的，如果选中，当操作修改时每行调用一次；相反，选中for each statement，不管修改了多少行，每个语句标记的触发器执行一次。
+* when子句和触发器操作在引用new.column-name和old.column-name表单插入、删除或更新时可以访问每一行元素。其中
+column-name是与触发器关联的表中的列的名称。
+* 如果存在when子句，postgreSQL语句只会执行when子句成立的那一行，如果没有when子句，postgreSQL语句会在每一行执行。
+* before或after关键字决定何时触发动作，决定是在关联行的插入、修改或删除之前或者之后执行触发器动作。
+* 要修改的表必须存在于同一数据库中，作为触发器被附加的表或视图，且必须只使用tablename,而不是database.tablename
+* 当创建约束触发器时会指定约束选项。这与常规触发器相同，只是可以使用这种约束来调整触发器触发的时间。当约束触发器实现的约束被违反时，它将抛出异常。 
+
+语法：
+```sql
+create trigger trigger_name [before|after|instead of] event_name
+on table_name
+[
+    -- 触发器逻辑...
+]
+```
+在这里，event_name可以是在所提到的表table_name上的insert、delete和update数据库操作。您可以在表名后选择指定for each row.
+
+以下是在update操作上在表的一个或多个指定列上创建触发器的语法：
+```sql
+create trigger trigger_name [before|after] update of column_name
+on table_name
+[
+    -- 触发器逻辑...
+]
+```
+
+### 列出触发器
+你可以从pg_trigger表中把当前数据库所有触发器列举出来：
+```sql
+select * from pg_trigger;
+```
+如果你想列举出特定表的触发器，语法如下：
+```sql
+select tgname from pg_trigger,pg_class where tgrelid=pg_class.oid and relname='company'
+```
+
+### 删除触发器
+```sql
+drop trigger trigger_name on table_name;
+```
+
+## 索引
+```sql
+create index index_name on table_name;
+```
+### 组合索引：
+基于表的多列上创建的索引
+```sql
+create index index_name on table_name(column1_name,column2_name)
+```
+不管是单列索引还是组合索引，该索引必须是在where子句的过滤条件中使用非常频繁的列。如果只有一列被使用到，就选择单索引，如果有多列就使用组合索引。
+
+### 唯一索引
+使用唯一索引不仅是为了性能，同时也为了数据的完整性。唯一索引不允许任何重复的值插入到表中。
+```sql
+create unique index index_name on table_name(column_name);
+```
+
+### 局部索引
+局部索引是在表的子集上构建的索引；子集由一个条件表单式上定义。索引只包含满足条件的行。
+```sql
+create index index_name on table_name (conditional_expression);
+```
+
+### 隐式索引
+隐式索引是在创建对象时，由数据库服务器自动创建的索引。索引自动创建为主键约束和唯一约束。
+
+### 删除索引
+```sql
+drop index index_name;
+```
+
+### 什么情况下要避免使用索引
+虽然索引的目的在于提高数据库的性能，但这里由几个情况需要避免使用索引。
+* 索引不应该使用在较小的表上。
+* 索引不应该使用在有频繁的大批量的更新或插入操作的表上。
+* 索引不应该使用在含有大量的null值的列上。
+* 索引不应该使用在频繁操作的列上。
+
+## alter table
+添加列
+```sql
+alter table table_name add column_name datatype;
+```
+删除列
+```sql
+alter table table_name drop column column_name;
+```
+修改列
+```sql
+alter table table_name alter column column_name type datatype;
+```
+给表中某列添加not null约束
+```sql
+alter table table_name modify column_name datatype not null;
+```
+给表中某列add unique constrain (添加unique约束)
+```sql
+alter table table_name add constraint myUniqueConstraint unique (column1, column2 ...);
+```
+给表中add check constraint (添加check约束)
+```sql
+alter table table_name add constraint myUniqueConstraint check (condition);
+```
+给表 add primary key (添加主键)
+```sql
+alter table table_name add constraint myPrimaryKey primary key (column1, column2 ...)
+```
+drop constraint （删除约束）
+```sql
+alter table table_name drop constraint myUniqueConstraint;
+```
+drop primary key (删除主键)
+```sql
+alter table table_name drop constraint myPrimaryKey;
+```
+
+## truncate table
+truncate table用于删除表的数据，但不删除表结果，与delete具有相同的效果，但是由于它实际上并不扫描表，所以速度更快。
+此外，truncate table可以立即释放表空间，而不需要后续vacuum操作，这在大型表上非常有用。
+vacuum操作用于释放、再利用更新/删除行所占据的磁盘空间。
+
+## view 视图
+视图时一张假表，只不过是通过相关的名称存储在数据库中的一个postgreSQL语句。
+
+视图实际上是一个以预定义的postgreSQL查询形式存在的表的组合。
+
+视图可以包含一个表的所有行或从一个或多个表选定行。
+
+视图可以从一个或多个表创建，这取决于要创建视图的postgresql查询。
+
+视图是一种虚拟表，允许用户实现以下几点：
+. 用户或用户组认为更自然或直观查找结构数据的方式。
+. 限制数据访问，用户只能看到有限的数据，而不是完整的表。
+. 汇总各种表中的数据，用于生成报告。
+
+postgresql视图是只读的，因此可能无法在视图上执行delete、insert或update语句。但是可以在视图上创建一个触发器，
+当尝试delete、insert或update视图时触发，需要左的动作在触发器内中定义。
+
+### 创建视图
+```sql
+create [temp | temporary] view view_name as
+select column1,column2...
+from table_name
+where [condition];
+```
+您可以在select语句中包含多个表，这与在正常的SQL SELECT查询中的方式非常相似，如果使用了可选的temp或temporary关键字，则将在
+临时数据库中创建视图。
+
+### 删除视图
+```sql
+drop view view_name;
+```
+
+## transaction 事物
+transaction是数据库管理系统执行过程中的一个逻辑单位，由一个有限的数据库操作序列构成。
+数据库事务通常包含了一个序列的对数据库的读/写操作。包含以下两个目的：
+. 为数据库操作序列提供了一个从失败中恢复到正常状体的方法，同时提供了数据库即使在异常状态下仍能保持一致性的方法。
+. 当多个应用程序在并发访问数据库时，可以在这些应用程序之间提供一个隔离方法，以防止彼此的操作互相干扰。
+当事务被提交给了数据库管理系统(DBMS)，则DBMS需要确保该事务中的所有操作都成功完成且结果被永久保存在数据库中，
+如果事务中有的操作没有成功完成，则事务中的所有操作都需要回滚，回到事务执行前的状态；同时，该事务对数据库或者其他事务的执行无影响，所有的事务都好像在独立的运行。
+
+### 事务的属性
+事务具有以下四个标准属性，通常根据首字母缩写为ACID：
+. 原子性(Atomicity): 事务作为一个整体被执行，包含在其中的对数据库的操作要么全部执行，要么都不执行。
+. 一致性(Consistency): 事务应确保数据库的状态从一个一致状态转变为另一个一致状态。一致状态的含义时数据库中的数据应满足完整性约束。
+. 隔离性(Isolation): 多个事务并发执行时，一个事务的执行不应影响其他事务的执行。
+. 持久性(Durability): 已被提交的事务对数据库的修改应该永久保存在数据库中。
+
+### 事务控制
+begin transaction: 开始一个事务
+. commit: 事务确认，或者可以使用end transaction命令
+. rollback: 事务回滚
+事务控制命令只与insert、update和delete一起使用。他们不能在创建表或删除表时使用，因为这些操作在数据库中是自动提交的。
+
+### begin transaction
+事务可以使用begin transaction命令或简单的begin命令来启动。此类事务通常会持续执行下去，
+直到遇到下一个commit或rollback命令。不过在数据库关闭或发生错误时，事务处理也会回滚。
+```sql
+begin;
+或者
+begin transaction;
+```
+
+### commit
+commit命令是用于把事务调用的更改保存到数据库中的事务命令，即确认事务。
+```sql
+commit;
+或者
+end transaction;
+```
+
+### rollback
+rollback命令是用于撤销尚未保存到数据库的事务命令，即回滚事务。
+```sql
+rollback;
+```
+
+## lock 锁
+锁主要是为了保持数据库操作的一致性，可以阻止用户修改一行或整个表，一般用在并发较高的数据库中。
+在多个用户访问数据库的时候若对并发操作不加控制就可能会读取和存储不正确的数据，破坏数据库的一致性。
+
+数据库中有两种基本的锁：排它锁(Exclusive Locks)和共享锁(Share Locks)。
+
+如果数据对象加上排它锁，则其他的事务不唔唔对它读取和修改。
+如果加上共享锁，则该数据库对象可以被其他事务读取，但不能修改。
+
+语法：
+```sql
+lock [table]
+name
+in
+lock_mode
+```
+. name:要锁定的现有表的名称(可选模式限定)。如果只在表名之前指定，则只锁定该表。如果未指定，
+则锁定该表及其所有子表（如果有）。
+. lock_mode:锁定模式指定该锁与哪个锁冲突。如果没有指定锁定模式，则使用限制最大的访问独占模式。
+可能的值是：access share,row share,row exclusive,share update exclusive, share, 
+share row exclusive, exclusive, access exclusive
+
+一旦获得了锁，锁将在当前事务的其余时间保持。没有解锁表命令；锁总是在事务结束时释放。
+
+### 死锁
+当两个事务彼此等待对方完成其操作时，可能会发生死锁。尽管postgreSQL可以检测它们并以回滚结束它们，但死锁仍然很不方便。
+为了防止应用程序遇到这个问题，请确保将应用程序设计为以相同的顺序锁定对象。
+
+### 咨询锁
+postgresql提供了创建具有应用程序定义含义的锁的方法。这些被称为咨询锁。由于系统不强制使用它们，所以正确使用它们取决于应用程序。
+咨询锁对于不适用MVCC模型的锁定策略非常有用。
+
+例如，咨询锁的一个常见用途是模拟所谓“平面文件”数据管理系统中典型的悲观锁定策略。虽然存储在表中的标志可以用于相同的目的，但是通知锁更快，
+避免了表膨胀，并且在会话结束时由服务器自动清理。
+
+下面的示例将数据库中的company表锁定为access exclusive模式。
+lock语句只在事务模式下工作。
+```sql
+begin;
+lock table company1 in access exclusive mode;
+```
+表被锁定，直到事务结束，并且要完成事务，您必须回滚或提交事务
+
+## 子查询
+子查询或称为内部查询、嵌套查询，指的是在postgresql查询中的where子句中嵌入查询语句。
+
+子查询需遵循的几个规则：
+. 子查询必须用括号括起来。
+. 子查询在select子句中只能有一个列，除非在主查询中有多列，与子查询的所选列进行比较。
+. order by 不能用在子查询中，虽然主查询可以使用order by。可以在子查询中使用group by,功能与order by 相同。
+. 子查询返回多于一行，只能与多值预算符一起使用，如in运算符。
+. between运算符不能与子查询一起使用，但是，between可在子查询内使用。
+
+### insert语句中的子查询使用
+子查询也可以与insert语句一起使用。insert语句使用子查询返回的数据插入到另一个表中。
+在子查询中所选择的数据可以用任意字符、日期或数字函数修改。
+```sql
+INSERT INTO table_name [ (column1 [, column2 ]) ]
+   SELECT [ *|column1 [, column2 ] ]
+   FROM table1 [, table2 ]
+   [ WHERE VALUE OPERATOR ]
+```
+```sql
+INSERT INTO COMPANY_BKP SELECT * FROM COMPANY  WHERE ID IN (SELECT ID FROM COMPANY) ;
+```
+
+## auto increment 自动増长
+auto increment会在新记录插入表中时生成一个唯一的数字。
+
+postgreSQL使用序列来标识字段的自増长，数据类型有smallserial、serail和bigserail。
+这些类型类似于mysql数据库支持的auto_increment属性。
+
+mysql使用auto_increment这个属性来标识字段的自增。
+```sql
+CREATE TABLE IF NOT EXISTS `runoob_tbl`(
+   `runoob_id` INT UNSIGNED AUTO_INCREMENT,
+   `runoob_title` VARCHAR(100) NOT NULL,
+   `runoob_author` VARCHAR(40) NOT NULL,
+   `submission_date` DATE,
+   PRIMARY KEY ( `runoob_id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+postgreSQL使用序列来标识字段的自增长：
+```sql
+CREATE TABLE runoob
+(
+    id serial NOT NULL,
+    alttext text,
+    imgurl text
+)
+```
+
+### smallserial、serial和bigserail范围：
+
+ | 伪类型      | 存储大小     | 范围 |
+ | ------------- |---------|---------|
+ | smallserail | 2字节 | 1到32,767|
+ | serial | 4字节 | 1 到 2,147,483,647 |
+ | bigserial | 8字节 | 1 到 922,337,2036,854,775,807 |
+ 
+语法：
+```sql
+CREATE TABLE COMPANY(
+   ID  SERIAL PRIMARY KEY,
+   NAME           TEXT      NOT NULL,
+   AGE            INT       NOT NULL,
+   ADDRESS        CHAR(50),
+   SALARY         REAL
+);
+```
+
+## privileges 权限
+无论何时创建数据库对象，都会为其分配一个所有者，所有者通常是执行create语句的人。
+对于大多数类型的对象，初始状态是只有所有者(或超级用户)才能修改或删除对象。
+要允许其他角色或用户使用它，必须为该用户设置权限。
+在postgreSQL中，权限分为以下几种：
+. select
+. insert
+. update
+. delete
+. truncate
+. references
+. trigger
+. create
+. connect
+. temporary
+. execute
+. usage
+根据对象的类型（表、函数等），将指定权限应用于该对象。
+
+要向用户分配权限，可以使用grant命令
+```sql
+grant privilege [,...]
+on object [,...]
+to {PUBLIC | GROUP group | username }
+```
+. privilege: 值可以为：select,insert,update,delete,rule,all
+. object: 要授予访问权限的对象名称。可能的对象有：table,view,sequence
+. public： 表示所有用户
+. GROUP group: 为用户组授予权限
+. username: 要授予权限的用户名。public 是代表所有用户的简短形式。
+
+我们可以使用revoke命令取消权限
+```sql
+revoke privilege [,...]
+on object [,...]
+from { PUBLIC | GROUP group | username }
+```
+
+示例：
+```sql
+-- 创建一个用户
+create user runoob with password '123456';
+-- 给runoob分配权限
+grant all on company to runoob;
+-- 撤销权限
+revoke all on company from runoob;
+-- 删除用户
+drop user runoob;
+```
+
+## 时间/日期函数和操作符
+
+### 日期/时间操作符
+下表演示了基本算术操作符的行为(+,*,等)：
+
+ | 操作符      | 例子     | 结果 |
+ | ------------- |---------|---------|
+ | + |	date '2001-09-28' + integer '7' | 	date '2001-10-05'
+ | + |	date '2001-09-28' + interval '1 hour' | 	timestamp '2001-09-28 01:00:00'
+ | + |	date '2001-09-28' + time '03:00' | 	timestamp '2001-09-28 03:00:00'
+ | + |	interval '1 day' + interval '1 hour' | 	interval '1 day 01:00:00'
+ | + |	timestamp '2001-09-28 01:00' + interval '23 hours' | 	timestamp '2001-09-29 00:00:00'
+ | + |	time '01:00' + interval '3 hours' | 	time '04:00:00'
+ | - |	- interval '23 hours' | 	interval '-23:00:00'
+ | - |	date '2001-10-01' - date '2001-09-28' | 	integer '3' (days)
+ | - |	date '2001-10-01' - integer '7' | 	date '2001-09-24'
+ | - |	date '2001-09-28' - interval '1 hour' | 	timestamp '2001-09-27 23:00:00'
+ | - |	time '05:00' - time '03:00' | 	interval '02:00:00'
+ | - |	time '05:00' - interval '2 hours' | 	time '03:00:00'
+ | - |	timestamp '2001-09-28 23:00' - interval '23 hours' | 	timestamp '2001-09-28 00:00:00'
+ | - |	interval '1 day' - interval '1 hour' | 	interval '1 day -01:00:00'
+ | - |	timestamp '2001-09-29 03:00' - timestamp '2001-09-27 12:00' | 	interval '1 day 15:00:00'
+ | * |	900 * interval '1 second' | 	interval '00:15:00'
+ | * |	21 * interval '1 day' | 	interval '21 days'
+ | * |	double precision '3.5' * interval '1 hour' | 	interval '03:30:00'
+ | / |	interval '1 hour' / double precision '1.5' | 	interval '00:40:00'
+ 
+### 日期/时间函数
+
+ | 函数      | 返回类型 | 描述    | 例子 | 结果 |
+ | ------------- |---------|---------|---------|---------|
+ | age(timestamp, timestamp) |	interval |	减去参数后的"符号化"结果，使用年和月，不只是使用天 |	age(timestamp '2001-04-10', timestamp '1957-06-13') |	43 years 9 mons 27 days |
+ | age(timestamp) |	interval |	从current_date减去参数后的结果（在午夜） |	age(timestamp '1957-06-13') |	43 years 8 mons 3 days
+ | clock_timestamp() |	timestamp with time zone |	实时时钟的当前时间戳（在语句执行时变化）	 	 
+ | current_date |	date |	当前的日期；	 | 	 
+ | current_time |	time with time zone |	当日时间；	  |	 
+ | current_timestamp |	timestamp with time zone |	当前事务开始时的时间戳； |	 	 
+ | date_part(text, timestamp) |	double precision |	获取子域(等效于extract)； |	date_part('hour', timestamp '2001-02-16 20:38:40') |	20
+ | date_part(text, interval) |	double precision |	获取子域(等效于extract)； |	date_part('month', interval '2 years 3 months') |	3
+ | date_trunc(text, timestamp) |	timestamp |	截断成指定的精度； |	date_trunc('hour', timestamp '2001-02-16 20:38:40') |	2001-02-16 20:00:00
+ | date_trunc(text, interval) |	interval |	截取指定的精度， |	date_trunc('hour', interval '2 days 3 hours 40 minutes') |	2 days 03:00:00
+ | extract(field from timestamp) |	double precision |	获取子域； |	extract(hour from timestamp '2001-02-16 20:38:40') |	20
+ | extract(field from interval) |	double precision |	获取子域； |	extract(month from interval '2 years 3 months') |	3
+ | isfinite(date) |	boolean |	测试是否为有穷日期(不是 +/-无穷) |	isfinite(date '2001-02-16') |	true
+ | isfinite(timestamp) |	boolean |	测试是否为有穷时间戳(不是 +/-无穷) |	isfinite(timestamp '2001-02-16 21:28:30') |	true
+ | isfinite(interval) |	boolean |	测试是否为有穷时间间隔 |	isfinite(interval '4 hours') |	true
+ | justify_days(interval) |	interval |	按照每月 30 天调整时间间隔 |	justify_days(interval '35 days') |	1 mon 5 days
+ | justify_hours(interval) |	interval |	按照每天 24 小时调整时间间隔 |	justify_hours(interval '27 hours') |	1 day 03:00:00
+ | justify_interval(interval) |	interval |	使用justify_days和justify_hours调整时间间隔的同时进行正负号调整 |	justify_interval(interval '1 mon -1 hour') |	29 days 23:00:00
+ | localtime |	time |	当日时间； |	 	 
+ | localtimestamp |	timestamp |	当前事务开始时的时间戳； |	 	 
+ | make_date(year int, month int, day int) |	date |	为年、月和日字段创建日期 |	make_date(2013, 7, 15) |	2013-07-15
+ | make_interval(years int DEFAULT 0, months int DEFAULT 0, weeks int DEFAULT 0, days int DEFAULT 0, hours int DEFAULT 0, mins int DEFAULT 0, secs double precision DEFAULT 0.0) |	interval |	从年、月、周、天、小时、分钟和秒字段中创建间隔 |	make_interval(days := 10) |	10 days
+ | make_time(hour int, min int, sec double precision) |	time |	从小时、分钟和秒字段中创建时间 |	make_time(8, 15, 23.5) |	08:15:23.5
+ | make_timestamp(year int, month int, day int, hour int, min int, sec double precision) |	timestamp |	从年、月、日、小时、分钟和秒字段中创建时间戳 |	make_timestamp(2013, 7, 15, 8, 15, 23.5) |	2013-07-15 08:15:23.5
+ | make_timestamptz(year int, month int, day int, hour int, min int, sec double precision, \[ timezone text \]) |	timestamp with time zone |	从年、月、日、小时、分钟和秒字段中创建带有时区的时间戳。 没有指定timezone时，使用当前的时区。 |	make_timestamptz(2013, 7, 15, 8, 15, 23.5) |	2013-07-15 08:15:23.5+01
+ | now() |	timestamp with time zone |	当前事务开始时的时间戳；	 | 	 
+ | statement_timestamp() |	timestamp with time zone |	实时时钟的当前时间戳；	 	 | 
+ | timeofday() |	text |	与clock_timestamp相同，但结果是一个text 字符串；	  |	 
+ | transaction_timestamp() |	timestamp with time zone |	当前事务开始时的时间戳；	 | 	 
+
+## 常用函数
+### 聚合函数
+. count: 用于计算数据库表中的行数
+. max: 用于查询某一特定列中最大值
+. min: 用于查询某一特定列中最小值
+. age: 用于计算某一特定列中平均值
+. sum: 用于计算数字列所有值的总和
+. array: 用于输入值(包括Null)添加到数组中
+. numeric: 完整列出一个SQL中所需的操作数的函数
+. String: 完整列出一个SQL中所需的操作字符的函数
+
+### 数学函数
+ | 函数      | 返回类型 | 描述    | 例子 | 结果 |
+ | ------------- |---------|---------|---------|---------|
+ |abs(x)	 | |	绝对值 |	abs(-17.4) |	17.4 |
+ |cbrt(double)	 | |	立方根 |	cbrt(27.0) |	3 |
+ |ceil(double/numeric)	 | |	不小于参数的最小的整数 |	ceil(-42.8) |	-42
+ |degrees(double)	 | |	把弧度转为角度	degrees(0.5) |	28.6478897565412
+ |exp(double/numeric)	 | |	自然指数	exp(1.0) |	2.71828182845905
+ |floor(double/numeric)	 | |	不大于参数的最大整数 |	floor(-42.8) |	-43
+ |ln(double/numeric) |	 |	自然对数 |	ln(2.0) |	0.693147180559945
+ |log(double/numeric) |	 |	10为底的对数 |	log(100.0) |	2
+ |log(b numeric,x numeric) |	numeric |	指定底数的对数	log(2.0, 64.0) |	6.0000000000
+ |mod(y, x)	 | |	取余数 |	mod(9,4) |	1
+ |pi() |	double |	"π"常量	pi() |	3.14159265358979
+ |power(a double, b double) |	double |	求a的b次幂 |	power(9.0, 3.0) |	729
+ |power(a numeric, b numeric) |	numeric |	求a的b次幂 |	power(9.0, 3.0) |	729
+ |radians(double) |	double |	把角度转为弧度	radians(45.0) |	0.785398163397448
+ |random() |	double |	0.0到1.0之间的随机数值 |	random()	
+ |round(double/numeric)	 | |	圆整为最接近的整数 |	round(42.4) |	42
+ |round(v numeric, s int) |	numeric |	圆整为s位小数数字 |	round(42.438,2) |	42.44
+ |sign(double/numeric)	 | |	参数的符号(-1,0,+1) |	sign(-8.4)	-1
+ |sqrt(double/numeric) | |		平方根 |	sqrt(2.0)	 |1.4142135623731
+ |trunc(double/numeric)	 | |	截断(向零靠近) |	trunc(42.8) |	42
+ |trunc(v numeric, s int) |	numeric	 |截断为s小数位置的数字 |	trunc(42.438,2) |	42.43
+
+### 三角函数
+ | 函数       | 描述    | 
+ | ------------- |---------|
+ | acos(x) | 	反余弦 | 
+ | asin(x) | 	反正弦 | 
+ | atan(x) | 	反正切 | 
+ | atan2(x, y) | 	正切 y/x 的反函数 | 
+ | cos(x) | 	余弦 | 
+ | cot(x) | 	余切 | 
+ | sin(x) | 	正弦 | 
+ | tan(x) | 	正切 | 
+ 
+### 字符串操作符
+ | 函数      | 返回类型 | 描述    | 例子 | 结果 |
+ | ------------- |---------|---------|---------|---------|
+ |  string &#124;&#124; string	 | text | 	字串连接 | 	'Post' &#124;&#124; 'greSQL' | 	PostgreSQL
+ |  bit_length(string) | 	int | 	字串里二进制位的个数 | 	bit_length('jose') | 	32
+ |  char_length(string) | 	int | 	字串中的字符个数 | 	char_length('jose') | 	4
+ |  convert(string using conversion_name) | 	text | 	使用指定的转换名字改变编码。 | 	convert('PostgreSQL' using iso_8859_1_to_utf8) | 	'PostgreSQL'
+ |  lower(string) | 	text | 	把字串转化为小写 | 	lower('TOM') | 	tom
+ |  octet_length(string) | 	int | 	字串中的字节数	octet_length('jose') | 	4
+ |  overlay(string placing string from int \[for int\]) | 	text | 	替换子字串 | 	overlay('Txxxxas' placing 'hom' from 2 for 4) | 	Thomas
+ |  position(substring in string) | 	int | 	指定的子字串的位置 | 	position('om' in 'Thomas') | 	3
+ |  substring(string \[from int\] \[for int\]) | 	text | 	抽取子字串 | 	substring('Thomas' from 2 for 3) | 	hom
+ |  substring(string from pattern) | 	text | 	抽取匹配 POSIX 正则表达式的子字串 | 	substring('Thomas' from '…$') | 	mas
+ |  substring(string from pattern for escape) | 	text | 	抽取匹配SQL正则表达式的子字串 | 	substring('Thomas' from '%#"o_a#"_' for '#') | 	oma
+ |  trim(\[leading&#124;trailing &#124; both\] \[characters\] from string) | 	text | 	从字串string的开头/结尾/两边/ 删除只包含characters(默认是一个空白)的最长的字串 | 	trim(both 'x' from 'xTomxx') | 	Tom
+ |  upper(string) | 	text | 	把字串转化为大写。	 | upper('tom') | 	TOM
+ |  ascii(text) | 	int | 	参数第一个字符的ASCII码 | 	ascii('x') | 	120
+ |  btrim(string text \[, characters text\]) | 	text | 	从string开头和结尾删除只包含在characters里(默认是空白)的字符的最长字串 | 	btrim('xyxtrimyyx','xy') | 	trim
+ |  chr(int) | 	text | 	给出ASCII码的字符 | 	chr(65) | 	A
+ |  convert(string text, \[src_encoding name,\] dest_encoding name) | 	text | 	把字串转换为dest_encoding	convert( 'text_in_utf8', 'UTF8', 'LATIN1') | 	以ISO 8859-1编码表示的text_in_utf8
+ |  initcap(text) | 	text | 	把每个单词的第一个子母转为大写，其它的保留小写。单词是一系列字母数字组成的字符，用非字母数字分隔。 | 	initcap('hi thomas') | 	Hi Thomas
+ |  length(string text) | 	int | 	string中字符的数目 | 	length('jose') | 	4
+ |  lpad(string text, length int \[, fill text\]) | 	text | 	通过填充字符fill(默认为空白)，把string填充为长度length。 如果string已经比length长则将其截断(在右边)。 | 	lpad('hi', 5, 'xy') | 	xyxhi
+ |  ltrim(string text \[, characters text\]) | 	text | 	从字串string的开头删除只包含characters(默认是一个空白)的最长的字串。 | 	ltrim('zzzytrim','xyz') | 	trim
+ |  md5(string text) | 	text | 	计算给出string的MD5散列，以十六进制返回结果。 | 	md5('abc')	
+ |  repeat(string text, number int) | 	text | 	重复string number次。 | 	repeat('Pg', 4) | 	PgPgPgPg
+ |  replace(string text, from text, to text) | 	text | 	把字串string里出现地所有子字串from替换成子字串to。 | 	replace('abcdefabcdef', 'cd', 'XX') | 	abXXefabXXef
+ |  rpad(string text, length int \[, fill text\]) | 	text | 	通过填充字符fill(默认为空白)，把string填充为长度length。如果string已经比length长则将其截断。 | 	rpad('hi', 5, 'xy') | 	hixyx
+ |  rtrim(string text \[, character text\]) | 	text | 	从字串string的结尾删除只包含character(默认是个空白)的最长的字 | 	rtrim('trimxxxx','x') | 	trim
+ |  split_part(string text, delimiter text, field int) | 	text | 	根据delimiter分隔string返回生成的第field个子字串(1 Base)。 | 	split_part('abc~@~def~@~ghi', '~@~', 2) | 	def
+ |  strpos(string, substring) | 	text | 	声明的子字串的位置。 | 	strpos('high','ig') | 	2
+ |  substr(string, from \[, count\]) | 	text | 	抽取子字串。 | 	substr('alphabet', 3, 2) | 	ph
+ |  to_ascii(text \[, encoding\]) | 	text | 	把text从其它编码转换为ASCII。 | 	to_ascii('Karel') | 	Karel
+ |  to_hex(number int/bigint) | 	text | 	把number转换成其对应地十六进制表现形式。 | 	to_hex(9223372036854775807) | 	7fffffffffffffff
+ |  translate(string text, from text, to text) | 	text | 	把在string中包含的任何匹配from中的字符的字符转化为对应的在to中的字符。 | 	translate('12345', '14', 'ax') | 	a23x5
+
+### 类型相关转换函数
+ | 函数      | 返回类型 | 描述    | 例子 |
+ | ------------- |---------|---------|---------|
+ |  to_char(timestamp, text) | 	text | 	将时间戳转换为字符串 | 	to_char(current_timestamp, 'HH12:MI:SS')
+ |  to_char(interval, text) | 	text | 	将时间间隔转换为字符串 | 	to_char(interval '15h 2m 12s', 'HH24:MI:SS')
+ |  to_char(int, text) | 	text | 	整型转换为字符串 | 	to_char(125, '999')
+ |  to_char(double precision, text)	 | text | 	双精度转换为字符串 | 	to_char(125.8::real, '999D9')
+ |  to_char(numeric, text) | 	text | 	数字转换为字符串 | 	to_char(-125.8, '999D99S')
+ |  to_date(text, text)	 | date	 | 字符串转换为日期 | 	to_date('05 Dec 2000', 'DD Mon YYYY')
+ |  to_number(text, text) | 	numeric	 | 转换字符串为数字 | 	to_number('12,454.8-', '99G999D9S')
+ |  to_timestamp(text, text) | 	timestamp	 | 转换为指定的时间格式 |  time zone convert string to time stamp	to_timestamp('05 Dec 2000', 'DD Mon YYYY')
+ |  to_timestamp(double precision) | 	timestamp | 	把UNIX纪元转换成时间戳	 | to_timestamp(1284352323)
